@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn DOM</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <div><h1>SIDDESH</h1></div>
+    <div><h2>PATIL</h2></div>
+    <p>age:19</p>
+    <p>MALE</p>
+
+    <button onclick="change()">After one year</button>
+    
+    
+
+
+    <script>
+
+        function change(){
+            var divs = document.querySelectorAll("div");
+
+                for( var i = 0; i < divs.length; i++){
+                    var div = divs[i];
+                        div.style.color = "blue";
+
+                }
+
+            var ps = document.querySelectorAll("p");
+                for(var i = 0; i < ps.length; i++){
+                    var para = ps[i];
+                   para.style.color = "red";
+                  var firstpara = ps[0];
+                    firstpara.innerHTML = "age:20";
+                  var secondpara = ps[1];
+                    secondpara.innerHTML = "MALE";
+                }
+                
+        }
+    
+    </script>
+
+</body>
+</html>

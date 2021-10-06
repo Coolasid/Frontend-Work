@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news_paper</title>
+    <style>
+            .img{
+                width: 100%;
+                height: 100%;
+                background-image: url("https://th.thgim.com/news/national/tamil-nadu/5qxejn/article36488711.ece/ALTERNATES/FREE_660/KCVeeramani-housejpg");
+                background-size: cover; 
+            }
+            #bigb>div:nth-child(1){
+                background-color: #04295d;
+            }
+            #bigb{
+                background-color: #f5f5f6;
+            }
+            #list>div{
+                background-color: white;
+            }
+            @media (max-width:700px){
+                #bigb{
+                    width: 70%;
+                    height: 700px;
+                    /* border: 1px solid black; */
+                    margin: auto;
+
+                }
+                #bigb > div:nth-child(1){
+                    width: 95%;
+                    height: 35%;
+                    /* border: 1px solid black; */
+                    margin: auto;
+                }
+                #list{
+                    display: grid;
+                    grid-template-rows: 20% 20% 20% 20% 20%;
+                    /* border: 1px solid blue; */
+                    width: 95%;
+                    margin: auto;
+                    height: 450px;
+                }
+                #list >div{
+                    /* border: 1px solid black; */
+                    margin: 10px 0 0 0 ;
+                    width: 100%;
+                    
+                }
+                .imgbox{
+                    width: 100%;
+                    height: 50%;
+                    /* border: 1px solid yellow; */
+                }
+                #bigb>div:nth-child(1) > div:nth-child(2){
+                    color: white;
+                    margin: 8px;
+                    font-size: 18px;
+                }
+                #bigb>div:nth-child(1) > div:nth-child(3){
+                    color: white;
+                    margin: 0px 8px 0 8px;
+                    font-size: 8px;
+                    line-height: 15px;
+                }
+                #bigb>div:nth-child(1) > div:nth-child(4){
+                    color: #597daa;
+                    margin: 0px 8px 8px 8px ;
+                    font-size: 10px;
+                    
+                }
+                #list >div{
+                    display: inline-block;
+                }
+                
+                #list>div>div:nth-child(1){
+                    width: 25%;
+                    height: 100%;
+                    background-image: url("https://th.thgim.com/news/national/tamil-nadu/5qxejn/article36488711.ece/ALTERNATES/FREE_660/KCVeeramani-housejpg");
+                background-size: contain; 
+                display: inline-block;
+                }
+                
+                #list>div>div:nth-child(2){
+                    display: inline-block;
+                    /* border: 1px solid black; */
+                    vertical-align: top;
+                    width: 72%;
+                }
+                
+                #list>div>div:nth-child(2)>div:nth-child(1){
+                    /* border: 1px solid black; */
+                    color: #04295d;
+                    font-size: 10px;
+                    font-weight: 700;
+                    margin: 3px;
+                }
+                #list>div>div:nth-child(2)>div:nth-child(2){
+                    /* border: 1px solid black; */
+                    color:black;
+                    font-size: 11px;
+                    
+                    margin: 3px;
+                }
+            }
+            @media (min-width:701px){
+                #bigb{
+                    width: 80%;
+                    height: 650px;
+                    /* border: 1px solid black; */
+                    margin: 50px auto auto auto;
+                }
+                
+                 #bigb>div>div:nth-child(1){
+                    width: 100%;
+                    height: 50%;
+                    background-image: url("https://th.thgim.com/news/national/tamil-nadu/5qxejn/article36488711.ece/ALTERNATES/FREE_660/KCVeeramani-housejpg");
+                background-size: contain; 
+                
+                }
+
+                 #bigb > div:nth-child(1){
+                    width: 95%;
+                    height: 70%;
+                    /* border: 1px solid black; */
+                    margin: 10px auto;
+                }
+
+                 
+                
+                
+                 #bigb>div:nth-child(1) > div:nth-child(2){
+                    color: white;
+                    margin: 12px 12px 12px 15px;
+                    font-size: 28px;
+                
+                }#bigb>div:nth-child(1) > div:nth-child(3){
+                    color: white;
+                    margin: 0px 12px 0 15px;
+                    font-size: 10px;
+                    line-height: 15px;
+                }
+
+                #bigb>div:nth-child(1) > div:nth-child(4){
+                    color: #597daa;
+                    margin: 5px 12px 12px 15px ;
+                    font-size: 17px;
+                    
+                }
+                #remove{
+                    display: none;
+                }
+                #list{
+                    display: grid;
+                    grid-template-rows: 45% 45%;
+                    grid-template-columns:48.52% 48.52%;
+                    /* border: 1px solid blue; */
+                    width: 95%;
+                    height: 24%;
+                    margin: 15px auto auto auto;
+                    grid-gap: 13px;
+                    
+                }
+               
+                #list>div:nth-child(2),
+                #list>div:nth-child(3),
+                #list>div:nth-child(4),
+                #list>div:nth-child(5){
+                        display: inline-block;
+                    
+                }
+
+                #list>div>div:nth-child(2){
+                    display: inline-block;
+                    /* border: 1px solid black; */
+                    vertical-align: top;
+                    width: 72%;
+                }
+                
+                #list>div>div:nth-child(2)>div:nth-child(1){
+                    /* border: 1px solid black; */
+                    color: #04295d;
+                    font-size: 9px;
+                    font-weight: 700;
+                    margin: 3px;
+                }
+                #list>div>div:nth-child(2)>div:nth-child(2){
+                    /* border: 1px solid black; */
+                    color:black;
+                    font-size: 10px;
+                    
+                    margin: 3px;
+                }
+
+                 #list>div>div:nth-child(1){
+                    width: 25%;
+                    height: 100%;
+                    background-image: url("https://th.thgim.com/news/national/tamil-nadu/5qxejn/article36488711.ece/ALTERNATES/FREE_660/KCVeeramani-housejpg");
+                background-size: cover; 
+                display: inline-block;
+                }
+                #list>div:nth-child(4){
+                    grid-row-start: 1;
+                    grid-column-start: 2;
+                }
+            }
+
+            @media (min-width:1000px){
+                #bigb{
+                    width: 90%;
+                    height: 700px;
+                    margin: auto;
+                    padding: 10px;
+                    border: 1px solid black;
+                }
+                #bigb>div:nth-child(1){
+                    
+                    margin: 0 0 0 0 ;
+                    display: inline-block;
+                    border: 1px solid black;
+                }
+
+                #bigb>div:nth-child(1) > div:nth-child(2){
+                    color: white;
+                    margin: 12px 12px 12px 15px;
+                    font-size: 30px;
+                    /* border: 1px solid black; */
+                }
+                #bigb>div:nth-child(1) > div:nth-child(3){
+                    color: white;
+                    margin: 0px 12px 0 15px;
+                    font-size: 15px;
+                    line-height: 25px;
+                }
+
+                #bigb>div:nth-child(1) > div:nth-child(4){
+                    color: #597daa;
+                    margin: 5px 12px 12px 15px ;
+                    font-size: 19px;
+                    
+                }
+
+               
+                
+                
+
+            }
+    </style>
+</head>
+<body>
+        <div id="bigb">
+            <div> 
+                <div class="imgbox" >
+                   <div class="img"></div>
+                </div>
+                <div>
+                    Ahmedabad joint rally with Trump will be historic, says Modi
+                </div>
+                <div>
+                    KALLOL BHATTACHERJEE </br> SUHASINI HAIDAR
+                </div>
+                <div>
+                    U.S.President to visit Sabarmati Ashram ahead of 'Nameste Trump' event
+                </div>
+            </div>
+            <div id="list">
+                <div id="remove">
+                   <div></div>
+                   <div>
+                       <div>NATIONAL</div>
+                       <div>Ahmedabad glitters to welcome Donald Trump</div>
+                   </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>
+                        <div>THE HUDDLE</div>
+                        <div>The Huddle 2020 | Regional integration pegged to SAARC revival, says Ranil Wickremesinghe</div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>
+                        <div>NATIONAL</div>
+                        <div>Over 10 lakh Kashmir students to don school uniforms after seven months</div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>
+                        <div>NATIONAL</div>
+                        <div>Some restrictions imposed on export of medical equipment to China, says MEA</div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>
+                        <div>THE HUDDLE</div>
+                        <div>Only a"a microscopic monority" protesting against CAA: Tejaswo Surya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

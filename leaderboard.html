@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leaderboard</title>
+        <style>
+            /* div{
+                border: 1px solid black;
+            } */
+
+            #bigb{
+                margin:  auto;
+                width: 40%;
+                height: 700px;
+            }
+            .firstb{
+                width: 100%;
+                height: 18%;
+                
+            }
+
+            .firstb>div{
+                display: inline-block;
+                width: 49%;
+                height: 100%;
+            }
+            .firstb > div:nth-child(1) > div:nth-child(1){
+                width: 50%;
+                height: 63%;
+                margin: auto;
+                background-color: red;
+                font-size: 25px;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 25px;
+                color: white;
+            }
+            .firstb > div:nth-child(2) > div:nth-child(1){
+                width: 50%;
+                height: 63%;
+                margin: auto;
+                background-color: green;
+                font-size: 29px;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 25px;
+                color: white;
+            }
+            .text{
+                padding: 1%;
+                text-align: center;
+                font-size: 30px;
+            }
+            #bigb>div:nth-child(2){
+                width: 100%;
+                height: 22%;
+            }
+            #bigb>div:nth-child(2)>div:nth-child(2){
+                width: 60%;
+                height: 68%;
+                margin: auto;
+                background-color: gray;
+            }
+            #bigb>div:nth-child(3){
+                width: 59%;
+                height: 56%;
+                margin: 20px auto auto auto;
+            }
+            #bigb>div:nth-child(3)>div:nth-child(1){
+                width: 100%;
+                height: 80%;
+                display: grid;
+                grid-template-columns: auto auto auto ;
+                grid-template-rows: auto auto auto auto;
+                grid-row-gap: 20px;
+                grid-column-gap: 55px ;
+                
+            }
+
+            #grid>button:nth-child(1),
+            #grid>button:nth-child(3),
+            #grid>button:nth-child(7),
+            #grid>button:nth-child(9){
+                background-color: #668100;
+            }
+            #grid>button:nth-child(2),
+            #grid>button:nth-child(4),
+            #grid>button:nth-child(5),
+            #grid>button:nth-child(8),
+            #grid>button:nth-child(6){
+                background-color: #ff6600;
+            }
+            #grid>button:nth-child(11){
+                background-color: purple;
+            }
+
+            #grid>button{
+                
+                font-size: 30px;
+               text-align: center;
+               vertical-align: middle;
+                padding: 4px 0 0 0;
+                
+            }
+            #bigb>div:nth-child(2)>div:nth-child(2){
+                 font-size: 30px;
+               text-align: center;
+               vertical-align: middle;
+                box-sizing: border-box;
+                 padding: 36px 0 0 0 ;
+                 font-weight: 700;
+            }
+            #bigb>div:nth-child(3)>button:nth-child(2){
+                background-color: black;
+                width: 100%;
+                height: 15%;
+                margin: 15px 0 0 0;
+                color: white;
+                font-size: 35px;
+                text-align: center;
+                padding: 4px 0 0 0;
+                box-sizing: border-box;
+            }
+            
+
+        </style>
+</head>
+<body>
+        <div id="bigb">
+            <!-- 1st child -->
+                <div class="firstb">
+                    <div>
+                        <div id="min"></div>
+                        <div class="text">MIN</div>
+                    </div>
+                    <div>
+                        <div id="max"></div>
+                        <div class="text">MAX</div>
+                    </div>
+                </div>
+
+                <!-- 2child -->
+                <div>
+                    <div class="text">SCORE</div>
+                    <div id="score"></div>
+                </div>
+
+                <!-- 3rdchild -->
+                <div>
+
+                    <div id="grid" >
+                        
+                            <button onclick="one()">1</button>
+                            <button onclick="two()">2</button>
+                            <button onclick="three()">3</button>
+                            <button onclick="four()">4</button>
+                            <button onclick="five()">5</button>
+                            <button onclick="six()">6</button>
+                            <button onclick="seven()">7</button>
+                            <button onclick="eight()">8</button>
+                            <button onclick="nine()">9</button>
+                            <div></div>
+                            <button onclick="zero()">0</button>
+                            <div></div>
+                        
+                        
+                           
+                    </div>
+                    <button onclick="check()">ENTER</button>
+                </div>
+        </div>
+
+        <script>
+
+                
+
+                    var display = document.getElementById("score");
+
+                    function one() {
+
+                        display.textContent = display.textContent + 1
+                    }
+                    function two() {
+                        display.textContent = display.textContent + 2
+                    }
+                    function three() {
+                        display.textContent = display.textContent + 3
+                    }
+                    function four() {
+                        display.textContent = display.textContent + 4
+                    }
+                    function five() {
+                        display.textContent = display.textContent + 5
+                    }
+                    function six() {
+                        display.textContent = display.textContent + 6
+                    }
+                    function seven() {
+                        display.textContent = display.textContent + 7
+                    }
+                    function eight() {
+                        display.textContent = display.textContent + 8
+                    }
+                    function nine() {
+                        display.textContent = display.textContent + 9
+                    }
+                    function zero() {
+                        display.textContent = display.textContent + 0
+                    }
+
+                    var mins = document.getElementById("min");
+                    var maxs = document.getElementById("max");
+
+                    function check() {
+
+                        if (mins.textContent == "") {
+                            mins.textContent = display.textContent;
+                        } 
+                        else if (display.textContent > mins.textContent) {
+                            maxs.textContent = display.textContent;
+                        } else if (display.textContent < mins.textContent) {
+                            mins.textContent = display.textContent;
+                        }
+                        display.textContent = "";
+
+
+
+
+
+
+                    }
+                
+
+                }
+        </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex_2</title>
+    <style>
+            /* div{
+                border: 1px solid black;
+            } */
+            .bigb{
+                width: 800px;
+                
+                margin: 100px auto auto auto;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .bigb >div {
+               flex-basis: 17%;
+                height: 130px;
+                margin: 3%;
+                border-radius: 5px;
+                background-color: rgb(43, 124, 97);
+            }
+            #mrg{
+                flex-basis: 45%;
+            }
+          
+
+    </style>
+</head>
+<body>
+    <div class="bigb">
+        <div></div>
+        <div id="mrg"></div>
+        <div></div>
+        <div id="mrg"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div id="mrg"></div>
+       
+    </div>
+    
+</body>
+</html>

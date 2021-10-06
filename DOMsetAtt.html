@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="http://www.google.com" >Google</a>
+    </div>
+<hr>
+<div>
+    <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F04%2F23%2F22%2F00%2Ftree-736885__480.jpg&imgrefurl=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fsun%2F&tbnid=L8xfQakH9a8tJM&vet=12ahUKEwjwj6jzq5XzAhXUnEsFHfc1AbMQMygAegUIARDHAQ..i&docid=T5n6IXZ5nFRelM&w=771&h=480&q=images&ved=2ahUKEwjwj6jzq5XzAhXUnEsFHfc1AbMQMygAegUIARDHAQ" />
+
+</div>
+<hr>
+<button onclick="changeLink()">change link</button>
+<button onclick="changeimg()">change img</button>
+
+<script>
+
+   function changeLink(){
+        var newLink = document.querySelector("a");
+        newLink.setAttribute("href", "http://www.masaischool.com");
+        newLink.textContent = "Masai School";
+    }
+
+    function changeimg(){
+        var newImg = document.querySelector('img');
+        newImg.setAttribute('src', 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png');
+        
+    }
+</script>
+</body>
+</html>

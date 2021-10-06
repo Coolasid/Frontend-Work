@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom value</title>
+    <style>
+        .yellow{
+            background-color: yellow;
+        }
+        input{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <div class="yellow" id="head">success</div>
+            <input type="text" id="sid" />
+        </div>
+        <button onclick="getvalue()">Alert</button>
+        <button onclick="setvalue()">set value</button>
+        <button onclick="showvalue()">show value</button>
+        <button onclick="original()">to patil</button>
+        <script>
+            function getvalue(){
+                alert(document.getElementById("sid").value);
+            }
+
+            function setvalue(){
+                document.getElementById("sid").value = "siddesh"
+            }
+
+            function showvalue(){
+                document.getElementById("head").innerText = document.getElementById("sid").value;
+            }
+
+            function original(){
+                document.getElementById("head").innerText = "Patil"
+            }
+
+        </script>
+</body>
+</html>

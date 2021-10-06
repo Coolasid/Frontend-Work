@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box2</title>
+    <style>
+        /* div{
+            border: 1px solid black;
+        } */
+        #cont{
+            width: 800px;
+            
+            display: grid;
+            grid-gap: 20px;
+            margin: auto;
+            padding: 20px;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            grid-template: "a a a"
+                           "b c c"
+                           "b c c";
+             }
+        .box1{
+            grid-area: a;
+            height: 60px;
+
+            background-color: red;
+        }
+        .box2{
+            grid-area: b;
+            height: 500px;
+            
+            background-color: green;
+        }
+        .box3{
+            grid-area: c;
+            height: 500px;
+            
+            background-color: yellow;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="cont">
+        
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        
+          
+            
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countryContinent</title>
+    <style>
+        select{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="changeText">Name Of Continent</h1>
+    <select id="continent_select">
+        <option value="India"> India </option>
+        <option value="USA"> USA </option>
+        <option value="China"> China</option>
+        <option value="Nepal"> Nepal</option>
+        <option value="Australia"> Australia</option>
+        <option value="France"> France</option>
+        <option value="Gremany">Gremany</option>
+        <option value="SouthAfrica"> South Africa</option>
+        <option value="Nigeria"> Nigeria </option>
+        <option value="Mexico"> Mexico</option>
+        <option value="Argentina"> Argentina</option>
+        <option value="Brazil"> Brazil </option>
+        <option value="Canada"> Canada </option>
+        <option value="Singapore"> Singapore</option>
+        <option value="Sweden"> Sweden </option>
+
+    </select>
+
+    <button onclick="continents()">Know Continent</button>
+
+    <script>
+
+        function continents(){
+            var name = document.getElementById("continent_select");
+            var display = document.getElementById("changeText");
+                // display.textContent = name.value;
+            // if( name.value == "India"){
+            //     display.textContent = "Asia";
+            // } else if ( name.value == "USA"){
+            //     display.textContent = "America"
+            // }
+
+            var exp = name.value;
+            switch(exp) {
+                    case "India":
+                    display.textContent = "Asia";
+                    break;
+                    case "USA":
+                    display.textContent = "America";
+                    break;
+                    case "China":
+                    display.textContent = "Asia";
+                    break;
+                    case "Nepal":
+                    display.textContent = "Asia";
+                    break;
+                    case "Australia":
+                    display.textContent = "Australia";
+                    break;
+                    case "France":
+                    display.textContent = "Europe";
+                    break;
+                    case "Germany":
+                    display.textContent = "Europe";
+                    break;
+                    case "SouthAfrica":
+                    display.textContent = "Africa";
+                    break;
+                    case "Nigeria":
+                    display.textContent = "Africa";
+                    break;
+                    case "Argentina":
+                    display.textContent = "South America";
+                    break;
+                    case "Brazil":
+                    display.textContent = "South America";
+                    break;
+                    case "Canada":
+                    display.textContent = "North America";
+                    break;
+                    case "Singapore":
+                    display.textContent = "Asia";
+                    break;
+                    case "Sweden":
+                    display.textContent = "Europe";
+                    break;
+                    case "Mexico":
+                    display.textContent = "North America";
+                    break;
+                    
+
+            }
+        }
+    </script>
+</body>
+</html>

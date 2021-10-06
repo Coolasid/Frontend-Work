@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn DOM</title>
+</head>
+<body>
+
+        <h1>Siddesh Patil</h1>
+        <button onclick="toLowerCase()">lower case</button>
+        <button onclick="toUpperCase()">UPPER CASE</button>
+        <button onclick="toOriginal()">original</button>
+
+        <script>
+
+         function toLowerCase(){
+             var h1s =  document.querySelectorAll("h1")
+             h1s[0].innerHTML = "siddesh patil"
+             
+         }
+
+         function toUpperCase(){
+             var h1s = document.querySelectorAll("h1");
+                h1s[0].innerHTML = "SIDDESH PATIL";
+         }
+
+         function toOriginal(){
+             var h1s = document.querySelectorAll("h1");
+                h1s[0].innerHTML = "Siddesh Patil";
+         }
+
+        </script>
+</body>
+</html>

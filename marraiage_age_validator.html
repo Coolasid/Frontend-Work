@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marraiage_age_validator</title>
+    <style>
+        div{
+            /* border: 1px solid black; */
+            display: inline-block;
+            margin: 20px;
+        }
+        .boxtop{
+            vertical-align: top;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Gender</h3>
+        <select id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="boxtop">
+        <h3>Year Of Birth</h3>
+        <input type="number" id="age" />
+    </div>
+        <button onclick="checkAge()"> Check</button>
+
+        <script>
+
+            function checkAge(){
+
+                var Gen = document.getElementById("gender");
+                var Age = document.getElementById("age");
+
+                    var comp = 2021 - Age.value;
+
+              if( Gen.value == "M" && comp >= 21 ) {
+                  alert("valid legal age to get married")
+              } else if (Gen.value == "M" && comp < 21){
+                  alert("Not a legal age to get married")
+              }else if (Gen.value == "F" && comp >= 18) {
+                    alert("valid legal age to get married")
+                } else {
+                    alert("Not a legal age to get married")
+                }
+            }
+        </script>
+</body>
+</html>
