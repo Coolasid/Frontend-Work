@@ -13,6 +13,7 @@
 
 <script>
    
+   /*
    function Player(n,s){
        this.name = n;
        this.series = s;
@@ -23,4 +24,41 @@
 //    var obj = new Player("si", "vikings")
    
    console.log(obj);
+
+  
+
+  function Newspaper(n){
+
+    this.heading = "virat scored 71st century";
+    this.date = new Date().getDay();
+    this.id = Math.random()*10;
+    this.name = n;
+
+  }
+
+  let i = 0;
+
+  while ( i < 10){
+      let n = new Newspaper("TOI");
+      console.log(n);
+
+      i++;
+
+  }
+
+   */
+
+  let person= {
+
+    name: "siddesh",
+    nickName: "siddhu"
+
+    showNickName: function(){
+
+        console.log(this.nickName);
+    }
+    
+  }
+
+  person.showNickName();
 </script>

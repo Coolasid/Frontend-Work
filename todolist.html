@@ -43,6 +43,10 @@
                 <button id="btn">Delete All</button>
                 <button id="restorebtn">Restore Back</button>
             </div>
+
+            <div>
+                no. of tasks <div id="tasks"> </div>
+            </div>
         </form>
         <table>
                 <tr>
@@ -53,6 +57,8 @@
                     <td>Delete</td>
                 </tr>
         </table>
+
+
         <script>
             var fm = document.querySelector("form");
             var tb = document.querySelector("table"); 
@@ -64,7 +70,7 @@
                 var items = tb.querySelectorAll("tr");
                 for( var i = 1; i < items.length; i++){
                  items.removeChild(items[i]);
-                }
+                } 
             }
 
             function restoreall(){
@@ -113,6 +119,7 @@
                 e.target.textContent = "Completed";
                 e.target.removeEventListener("click", markComp);
                 e.target.parentNode.style.backgroundColor = "green";
+                e.target.parentNode.style.textdecoration = 
             }
 
             function makeDel(e){
