@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        /* #btn:hover{
+            font-size: 20px;
+        } */
+    </style>
 </head>
 <body>
     <h1 id="changeColour">The buttons color changes to a random value when it is clicked! But only two times!</h1>
-    <button id="btn">Click here to change my color only two times!</button>
+    <button id="btn" >Click here to change my color only two times!</button>
 
 
 </body>
@@ -19,6 +25,14 @@
     var randomColour = document.getElementById("changeColour");
     var btncolour = document.getElementById("btn");
 
+    function changeFontSize(){
+        document.getElementById("btn").style.fontSize = random(30)+"px";
+    }
+    
+    
+    btncolour.addEventListener("mouseover", changeFontSize)
+    
+    
     function random(num){
         return Math.floor(Math.random() * num);
     }
@@ -34,18 +48,10 @@
         if (c > 1) {
             btncolour.removeEventListener("click", switchColour);
         }
-
-      
-
     }
 
-      btncolour.addEventListener("click", switchColour);
+     btncolour.addEventListener("click", switchColour);
 
-      function changesize(){
-         var randSize = random(30);
-        // console.log(c);
-        btncolour.style.font = randSize + "px";
-      }
-      
-   btncolour.addEventListener("mouseover", changesize )
+     
+    
 </script>
