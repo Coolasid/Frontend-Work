@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>unix</title>
+</head>
+
+<body>
+        
+        <button id="btn" onclick="callPage()" >Create Page</button>
+        <div id="cont"> </div>
+</body>
+
+</html>
+<script>
+
+    let button = document.getElementById("btn");
+
+    button.style.margin = "0 0 0 700px"
+
+    let c = 0;
+
+    
+            function callPage(){
+        
+                var firstDiv = document.createElement("div");
+                firstDiv.style.border = "1px solid black"
+                firstDiv.style.width = "20px"
+                firstDiv.style.height = "20px"
+                
+                var main = document.getElementById("cont");
+                
+                main.append(firstDiv);
+                 
+                  
+                
+             }
+    
+             c++;
+    if( c % 2 == 0) {
+        document.getElementById("cont").textContent = " ";
+        
+    }
+     
+</script>
