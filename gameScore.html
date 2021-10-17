@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leaderboard</title>
+    <style>
+       
+
+        #cont{
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+        }
+        #bigb {
+            margin:auto 0 0 100px;
+            width: 70%;
+            height: 700px;
+            display: inline-block;
+        }
+
+        #totalScore{
+            width: 200px;
+            margin: auto;
+            /* height: 100px; */
+        }
+
+        #totalScore>div:nth-child(1){
+            font-size: 20px;
+            text-align: center;
+        }
+        #totalScore>div:nth-child(2){
+            font-size: 20px;
+            color: black;
+            text-align: center;
+            height: 80px;
+            margin: 10px 0 0 0;
+            background-color: #b3b3b3;
+        }
+
+        #minMaxBox{
+            width: 300px;
+            height: 100px;
+            margin: 15px auto auto auto;
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+        }
+
+        #minBox>div:nth-child(1){
+            width: 60%;
+            height: 60%;
+            margin: 20px 0 0 15px;
+            background-color: red;
+        }
+
+        .minText{
+            margin: 5px 0 0 45px;
+        }
+
+        #maxBox>div:nth-child(1){
+            width: 60%;
+            height: 60%;
+            margin: 20px 15px 0 auto;
+            background-color: green;
+        }
+
+        .maxText{
+            margin: 5px 0 0 72px;
+        }
+
+        #wholeDiv{
+            width: 300px;
+            margin: 20px auto auto auto;
+        }
+
+        #scoreBox{
+            width: 100%;
+            height: 100px;
+        }
+
+        .scoreText{
+             font-size: 20px;
+            text-align: center;
+        }
+
+        #scoreBox>div:nth-child(2){
+            background-color: #b3b3b3;
+            height: 70px;
+        }
+
+        #btns{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin: 10px 0 0 0;
+            height: 280px;
+            grid-row-gap: 20px;
+            grid-column-gap: 40px;
+            
+        }
+
+            #btns>button:nth-child(1),
+            #btns>button:nth-child(3),
+            #btns>button:nth-child(7),
+            #btns>button:nth-child(9){
+                background-color: #668100;
+            }
+            #btns>button:nth-child(2),
+            #btns>button:nth-child(4),
+            #btns>button:nth-child(5),
+            #btns>button:nth-child(8),
+            #btns>button:nth-child(6){
+                background-color: #ff6600;
+            }
+            #btns>button:nth-child(11){
+                background-color: purple;
+            }
+
+        #btns>button{
+            font-size: 20px;
+        }
+
+        #enterBox{
+            width: 300px;
+            margin: 9px auto auto auto;
+            height: 40px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 20px;
+            padding: 3px 0 0 0;
+        }
+
+         /* div{
+                border: 1px solid black;
+            } */
+
+        #allBox{
+            width: 300px;
+            height: 700px;
+            margin: 0 0 0 300px;
+        }
+
+        .gameText{
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #allScores{
+            overflow: scroll;
+            text-align: center;
+            width: 100%;
+            height: 350px;
+        }
+
+        #removeAll{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            margin: 20px 0 0 0;
+            color: white;
+            font-size: 20px;
+        }
+
+        #removeOdd{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            margin: 20px 0 0 0;
+            color: white;
+            font-size: 20px;
+        }
+
+        #removeEven{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            margin: 20px 0 0 0;
+            color: white;
+            font-size: 20px;
+        }
+
+        #removeLast{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            margin: 20px 0 0 0;
+            color: white;
+            font-size: 20px;
+        }
+
+        #scoreValue{
+            text-align: center;
+            font-size: 25px;
+            color: black;
+            box-sizing: border-box;
+            padding: 25px;
+            font-weight: 900;
+
+        }
+
+        #minValue{
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 21px 0 0 0;
+        }
+
+        #maxValue{
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 21px 0 0 0;
+        }
+
+        #total{
+              font-size: 18px;
+            color: black;
+            font-weight: 700;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 31px 0 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cont">
+        
+        
+        <div id="bigb">
+
+            <!-- firstDiv -->
+            <div id="totalScore">
+                <div>TOTAL</div>
+                <div id="total">-</div>
+            </div>
+
+            <!-- secondDiv -->
+            <div id="minMaxBox">
+                <div id="minBox">
+                    <div id="minValue">-</div>
+                    <div class="minText">MIN</div>
+                </div>
+                <div id="maxBox">
+                    <div id="maxValue">-</div>
+                    <div class="maxText">MAX</div>
+                </div>
+            </div>
+
+            <!-- thirdDiv -->
+            <div id="wholeDiv">
+
+                <div id="scoreBox">
+                    <div class="scoreText">SCORE</div>
+                    <div  id="scoreValue" >#</div>
+                </div>
+
+                <div id="btns">
+                    <button onclick="press(1)">1</button>
+                    <button onclick="press(2)">2</button>
+                    <button onclick="press(3)">3</button>
+                    <button onclick="press(4)">4</button>
+                    <button onclick="press(5)">5</button>
+                    <button onclick="press(6)">6</button>
+                    <button onclick="press(7)">7</button>
+                    <button onclick="press(8)">8</button>
+                    <button onclick="press(9)">9</button>
+                    <div></div>
+                    <button onclick="press(0)">0</button>
+                    <div></div>
+                </div>
+
+                <button id="enterBox" onclick="check(), totalValue()" >
+                    ENTER
+                </button>
+            </div>
+        </div>
+
+       
+
+
+        <div id="score">
+            <div id="allBox">
+                <div class="gameText" >GAME SCORE</div>
+                <div id="allScores">
+
+                </div>
+
+                <button id="removeAll"> REMOVE ALL</button>
+                <button id="removeOdd">REMOVE ODD</button>
+                <button id="removeEven"> REMOVE EVEN</button>
+                <button id="removeLast">REMOVE LAST</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+
+
+
+        var display = document.getElementById("scoreValue");
+         
+         var output = "";
+       function press(num){
+          
+        output = output + num;
+        display.textContent = output;
+       
+       }
+
+        var mins = document.getElementById("minValue");
+        var maxs = document.getElementById("maxValue");
+        var total = document.getElementById("total")
+        var sum = 0;
+        function check() {
+
+            var n = document.getElementById("scoreValue").textContent;
+            var mini = document.getElementById("minValue").textContent;
+            var maxi = document.getElementById("maxValue").textContent;
+
+           
+            if( Number(n) < Number(mini)){
+                 document.getElementById("minValue").textContent = n;
+            }else if( Number(n) > Number(mini)){
+                document.getElementById("maxValue").textContent = n;
+            } else if( Number(n)){
+                document.getElementById("minValue").textContent = n;
+            }
+           
+            sum = sum + (+display.textContent);
+            total.textContent = sum;
+            output = "";
+            display.textContent = "#";
+            
+
+
+        }
+
+       
+             
+   
+        
+    </script>
+</body>
+
+</html>
