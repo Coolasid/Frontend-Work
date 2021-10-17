@@ -134,9 +134,9 @@
             padding: 3px 0 0 0;
         }
 
-         /* div{
+         div{
                 border: 1px solid black;
-            } */
+            }
 
         #allBox{
             width: 300px;
@@ -244,11 +244,11 @@
             <!-- secondDiv -->
             <div id="minMaxBox">
                 <div id="minBox">
-                    <div id="minValue">-</div>
+                    <div id="minValue">50</div>
                     <div class="minText">MIN</div>
                 </div>
                 <div id="maxBox">
-                    <div id="maxValue">-</div>
+                    <div id="maxValue">200</div>
                     <div class="maxText">MAX</div>
                 </div>
             </div>
@@ -289,7 +289,7 @@
             <div id="allBox">
                 <div class="gameText" >GAME SCORE</div>
                 <div id="allScores">
-
+                    <div id="rightPro"></div>
                 </div>
 
                 <button id="removeAll"> REMOVE ALL</button>
@@ -326,24 +326,37 @@
             var maxi = document.getElementById("maxValue").textContent;
 
            
-            if( Number(n) < Number(mini)){
-                 document.getElementById("minValue").textContent = n;
-            }else if( Number(n) > Number(mini)){
-                document.getElementById("maxValue").textContent = n;
-            } else if( Number(n)){
+            if( Number(n) > Number(maxi)){
+                 document.getElementById("maxValue").textContent = n;
+            } else if( Number(n) < Number(mini) ){
                 document.getElementById("minValue").textContent = n;
             }
            
+            getScoreRightSide();
             sum = sum + (+display.textContent);
             total.textContent = sum;
             output = "";
             display.textContent = "#";
-            
-
-
         }
 
-       
+        var scoreArr = [];
+        var i = 0;
+
+       function getScoreRightSide(){
+        
+        var scoreDiv = document.getElementById("scoreValue");
+        var RightDiv = document.getElementById("rightPro");
+
+        if( scoreDiv.textContent !== "#"){
+            scoreArr.push(scoreDiv.textContent);
+        }
+
+        for(i = i ; i < scoreArr.length; i++){
+            var rightPara = document.createElement("p");
+            rightPara.textContent = `Game - ${Number(i + 1)} - ${scoreArr[i]}`;
+            RightDiv.appendChild(rightPara);
+        }
+       }
              
    
         
