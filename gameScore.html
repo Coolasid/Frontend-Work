@@ -134,9 +134,7 @@
             padding: 3px 0 0 0;
         }
 
-         div{
-                border: 1px solid black;
-            }
+         
 
         #allBox{
             width: 300px;
@@ -226,6 +224,10 @@
             box-sizing: border-box;
             padding: 31px 0 0 0;
         }
+
+        /* div{
+                border: 1px solid black;
+            } */
     </style>
 </head>
 
@@ -292,10 +294,10 @@
                     <div id="rightPro"></div>
                 </div>
 
-                <button id="removeAll"> REMOVE ALL</button>
-                <button id="removeOdd">REMOVE ODD</button>
-                <button id="removeEven"> REMOVE EVEN</button>
-                <button id="removeLast">REMOVE LAST</button>
+                <button id="removeAll" onclick="removeAll()"> REMOVE ALL</button>
+                <button id="removeOdd" onclick="removeOdd()">REMOVE ODD</button>
+                <button id="removeEven" onclick="removeEven()"> REMOVE EVEN</button>
+                <button id="removeLast" onclick="removeLast()">REMOVE LAST</button>
             </div>
         </div>
     </div>
@@ -319,6 +321,7 @@
         var maxs = document.getElementById("maxValue");
         var total = document.getElementById("total")
         var sum = 0;
+        
         function check() {
 
             var n = document.getElementById("scoreValue").textContent;
@@ -333,7 +336,9 @@
             }
            
             getScoreRightSide();
+            
             sum = sum + (+display.textContent);
+            
             total.textContent = sum;
             output = "";
             display.textContent = "#";
@@ -341,7 +346,7 @@
 
         var scoreArr = [];
         var i = 0;
-
+        
        function getScoreRightSide(){
         
         var scoreDiv = document.getElementById("scoreValue");
@@ -353,12 +358,39 @@
 
         for(i = i ; i < scoreArr.length; i++){
             var rightPara = document.createElement("p");
+            rightPara.style.fontSize = "20px";
+            rightPara.style.fontWeight = "700";
+            
             rightPara.textContent = `Game - ${Number(i + 1)} - ${scoreArr[i]}`;
+            
             RightDiv.appendChild(rightPara);
         }
        }
              
-   
+       function removeAll(){
+            
+           var rightDiv = document.getElementById("rightPro");
+            
+           rightDiv.innerHTML = "";
+           
+            
+       }
+
+       function removeOdd(){
+           newArr = scoreArr.filter((el, i) => {
+                return i%2 === 0;
+           });
+
+           removeAll();
+           var rightDiv = document.getElementById("rightPro");
+           for( j = j; j < newArr.length; j++){
+               var rightPara = document.createElement("p");
+                 rightPara.style.fontSize = "20px";
+               rightPara.style.fontWeight = "700";
+                rightPara.textContent = `Game - ${Number(j+1)} - ${newArr[j]}`;
+                rightDiv.appendChild(rightPara);
+           }
+       }
         
     </script>
 </body>
