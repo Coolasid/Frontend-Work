@@ -77,26 +77,18 @@
 
 
 
-// Array In LocalStorage->
-    var arr = JSON.stringify([1, 2, 3, 4]) ;
+// // Array In LocalStorage->
+//     var arr = JSON.stringify([1, 2, 3, 4]) ;
+// // var arr = [1, 2, 3, 4];
 
-    localStorage.setItem("myArr", arr);
+//     localStorage.setItem("myArr", arr);
 
-    var myData = localStorage.getItem("myArr");
-    console.log(JSON.parse(myData));
+//     var myData = localStorage.getItem("myArr");
+//     console.log(JSON.parse(myData));
+//     // console.log(myData);
 
 
 
 
-var div = document.getElementById("div");
-// Object In LocalStorage->
-
-    var obj = JSON.stringify({name:'siddesh'});
-
-    localStorage.setItem("myObj", obj);
-
-    var myData = localStorage.getItem("myObj");
-    console.log(JSON.parse(myData));
-
-    div.append(JSON.parse(myData));
+//  
 
