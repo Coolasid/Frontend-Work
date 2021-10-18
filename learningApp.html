@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearningApp</title>
+    <style>
+
+        #learn{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto ;
+        }
+    </style>
+</head>
+<body>
+    <div id="learn">
+    <button onclick="obj()">Objects</button>
+    <button onclick="arr()">Array</button>
+    <button onclick="fun()">Function</button>
+    <button onclick="str()">Strings</button>
+    <button onclick="num()">Numbers</button>
+    <button onclick="null1()">null</button>
+    <button onclick="undefined1()">undefined</button>
+    </div>
+    <div id="para">
+
+    </div>
+</body>
+</html>
+<script>
+
+    function obj(){
+        let para = document.getElementById("para");
+        para.innerHTML = "";
+        let  objpara = document.createElement("div");
+        objpara.style.border = "2px solid Black"
+        objpara.style.fontSize = "20px"
+        objpara.style.width = "400px"
+        objpara.style.margin = " 50px auto auto auto"
+        objpara.style.textAlign = "center";
+        objpara.textContent = "In JavaScript, objects are king. If you understand objects, you understand JavaScript  "
+         
+        para.appendChild(objpara);
+    }
+
+    function arr() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+        objpara.style.fontSize = "20px"
+        objpara.style.width = "400px"
+        objpara.style.margin = " 50px auto auto auto"
+        objpara.style.textAlign = "center";
+            objpara.textContent = "JavaScript arrays are used to store multiple values in a single variable.";
+            para.appendChild(objpara);
+        }
+
+    function fun() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+            objpara.style.fontSize = "20px"
+            objpara.style.width = "400px"
+            objpara.style.margin = " 50px auto auto auto"
+            objpara.style.textAlign = "center";
+            objpara.textContent = "A JavaScript function is a block of code designed to perform a particular task.";
+            para.appendChild(objpara);
+        }
+
+    function str() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+            objpara.style.fontSize = "20px"
+            objpara.style.width = "400px"
+            objpara.style.margin = " 50px auto auto auto"
+            objpara.style.textAlign = "center";
+            objpara.textContent = "JavaScript strings are used for storing and manipulating text.";
+            para.appendChild(objpara);
+        }
+
+    function num() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+            objpara.style.fontSize = "20px"
+            objpara.style.width = "400px"
+            objpara.style.margin = " 50px auto auto auto"
+            objpara.style.textAlign = "center";
+            objpara.textContent = "JavaScript has only one type of number. Numbers can be written with or without decimals.";
+            para.appendChild(objpara);
+        }
+
+    function null1() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+            objpara.style.fontSize = "20px"
+            objpara.style.width = "400px"
+            objpara.style.margin = " 50px auto auto auto"
+            objpara.style.textAlign = "center";
+            objpara.textContent = "The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values and is treated as falsy for boolean operations";
+            para.appendChild(objpara);
+        }
+
+    function undefined1() {
+            let para = document.getElementById("para");
+            para.innerHTML = "";
+            let objpara = document.createElement("div");
+            objpara.style.border = "2px solid Black"
+            objpara.style.fontSize = "20px"
+            objpara.style.width = "400px"
+            objpara.style.margin = " 50px auto auto auto"
+            objpara.style.textAlign = "center";
+            objpara.textContent = "undefined is a property of the global object. That is, it is a variable in global scope. ... A variable that has not been assigned a value is of type undefined . A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value";
+            para.appendChild(objpara);
+        }
+
+</script>
