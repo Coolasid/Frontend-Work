@@ -376,6 +376,9 @@
             
        }
 
+       var newArr,
+       j = 0;
+
        function removeOdd(){
            newArr = scoreArr.filter((el, i) => {
                 return i%2 === 0;
@@ -389,8 +392,38 @@
                rightPara.style.fontWeight = "700";
                 rightPara.textContent = `Game - ${Number(j+1)} - ${newArr[j]}`;
                 rightDiv.appendChild(rightPara);
+                
            }
        }
+
+       function removeEven() {
+            newArr = scoreArr.filter((el, i) => {
+                return i % 2 !== 0;
+            });
+
+            removeAll();
+            var rightDiv = document.getElementById("rightPro");
+            for (j = j; j < newArr.length; j++) {
+                var rightPara = document.createElement("p");
+                rightPara.style.fontSize = "20px";
+                rightPara.style.fontWeight = "700";
+                rightPara.textContent = `Game - ${Number(j + 1)} - ${newArr[j]}`;
+                rightDiv.appendChild(rightPara);
+            }
+        }
+
+        function removeLast(){
+            removeAll();
+            newArr = scoreArr;
+            var rightDiv = document.getElementById("rightPro");
+            for( j = j; j < newArr.length-1;j++){
+                 var rightPara = document.createElement("p");
+                rightPara.style.fontSize = "20px";
+                rightPara.style.fontWeight = "700";
+                rightPara.textContent = `Game - ${Number(j + 1)} - ${newArr[j]}`;
+                rightDiv.appendChild(rightPara);
+            }
+        }
         
     </script>
 </body>
