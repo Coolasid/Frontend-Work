@@ -32,7 +32,7 @@
 
 
 
-// To Clear LocalStorage ->
+// To Clear Whole LocalStorage ->
 
     // localStorage.clear();
 
@@ -43,25 +43,60 @@
 
 
 
+
+
+
+// How Obj Looks Like->
+    // var Obj = {
+    //     name: 'raj',
+    //     age: 24
+    // }
+
+
+// How JSON Looks Like->
+    // var jsonObj = {
+    //     'name':'raj',
+    //     'age': 24
+    // }
+
+
+
+// Obj  ->  json =>
+
+    // var jsonObj = JSON.stringify(Obj);
+    // console.log(jsonObj);
+    
+        
+
+// json -> Obj =>
+
+    // var myObj = JSON.parse(jsonObj)
+    // console.log(myObj.name);
+        
+
+
+
+
 // Array In LocalStorage->
-    // var arr = [1, 2, 3, 4];
+    var arr = JSON.stringify([1, 2, 3, 4]) ;
 
-    // localStorage.setItem("myArr", arr);
+    localStorage.setItem("myArr", arr);
 
-    // var myData = localStorage.getItem("myArr");
-    // console.log(myData);
+    var myData = localStorage.getItem("myArr");
+    console.log(JSON.parse(myData));
 
 
 
-     
+
 var div = document.getElementById("div");
 // Object In LocalStorage->
 
-    var obj = {name:'siddesh'};
+    var obj = JSON.stringify({name:'siddesh'});
 
     localStorage.setItem("myObj", obj);
 
     var myData = localStorage.getItem("myObj");
-    console.log(myData);
+    console.log(JSON.parse(myData));
 
-    div.append(myData);
+    div.append(JSON.parse(myData));
+
