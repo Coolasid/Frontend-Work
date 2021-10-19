@@ -7,25 +7,34 @@
     <title>Flipkart</title>
 
     <style>
-        #products{
+        #allProducts{
             margin: 2% 5% 10% 5%;
-            border: 1px solid black;
+            /* border: 1px solid black; */
             height: 600px;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap: 5% ;
+            overflow: scroll;
         }
+
+        img{
+            width: 80%;
+        }
+
     </style>
 </head>
 <body>
     <h1>LocalStorage</h1>
 
 
-    <div id="products"></div>
+    <div id="allProducts"></div>
 </body>
 </html>
 <script>
 
 //Obj inside array
 
-    let products = [
+    let data = [
             {
                 name: "shoes",
                 price: "2000",
@@ -72,5 +81,55 @@
                 img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftimeandtidewatches.com%2Fwp-content%2Fuploads%2F2014%2F09%2FMANOFSTEELHaighHastingsWatch-M2-Diver.jpeg&f=1&nofb=1",
             },
         ];
+
+// 1.Run a foreach loop on products data and console log individual products names
+// 2. Append this data on DOM
+    // 2.1 createElements
+    
+
+    let allProducts = document.getElementById("allProducts");
+    data.forEach(function(products){
+
+        
+        // console.log(products.name);
+
+
+
+        let div = document.createElement("div");
+        // div.style.border = "1px solid black";
+
+        let img = document.createElement("img");
+        img.src = products.img;
+        img.style.margin = "0 0 0 10%"
+
+
+        let prodPrice = document.createElement("p");
+        prodPrice.textContent = products.price;
+        prodPrice.style.textAlign  = "center";
+        prodPrice.style.fontSize = "20px";
+        prodPrice.style.fontWeight = "600";
+        
+
+        let prodName = document.createElement("p");
+        prodName.textContent = products.name;
+        prodName.style.textAlign = "center";
+        prodName.style.fontSize = "20px";
+        
+
+
+
+        div.append(img, prodName, prodPrice);
+
+        
+
+        allProducts.appendChild(div);
+
+
+     });
+
+    
+
+
+
 
 </script>
