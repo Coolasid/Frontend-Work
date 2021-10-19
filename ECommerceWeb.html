@@ -21,6 +21,10 @@
             width: 80%;
         }
 
+        /* div{
+            border: 1px solid black;
+        } */
+
     </style>
 </head>
 <body>
@@ -88,45 +92,73 @@
     
 
     let allProducts = document.getElementById("allProducts");
-    data.forEach(function(products){
+
+
+    function showProducts(){
+
+
+        data.forEach(function(products){
+
+            
+            // console.log(products.name);
+
+
+
+            let div = document.createElement("div");
+            // div.style.border = "1px solid black";
+
+            let img = document.createElement("img");
+            img.src = products.img;
+            img.style.margin = "0 0 0 10%"
+
+
+            let prodPrice = document.createElement("p");
+            prodPrice.textContent = products.price;
+            prodPrice.style.textAlign  = "center";
+            prodPrice.style.fontSize = "20px";
+            prodPrice.style.fontWeight = "600";
+            
+
+            let prodName = document.createElement("p");
+            prodName.textContent = products.name;
+            prodName.style.textAlign = "center";
+            prodName.style.fontSize = "20px";
+            
+
+            let btnDiv = document.createElement("div");
+            btnDiv.style.padding = "0 0 0 35%"
+                let addToCartBtn = document.createElement("button");
+                addToCartBtn.innerText = "Add to Cart";
+                    btnDiv.appendChild(addToCartBtn);
+
+               
+                addToCartBtn.onclick = function(){
+                    addToCart(products);
+                };
+
+            div.append(img, prodName, prodPrice , btnDiv);
+
+             
+            
+
+            allProducts.appendChild(div);
+
+
+        });
+
+    }
+
+    showProducts();
+
+
+    
+
+    function addToCart(p){
+        
+
 
         
-        // console.log(products.name);
-
-
-
-        let div = document.createElement("div");
-        // div.style.border = "1px solid black";
-
-        let img = document.createElement("img");
-        img.src = products.img;
-        img.style.margin = "0 0 0 10%"
-
-
-        let prodPrice = document.createElement("p");
-        prodPrice.textContent = products.price;
-        prodPrice.style.textAlign  = "center";
-        prodPrice.style.fontSize = "20px";
-        prodPrice.style.fontWeight = "600";
-        
-
-        let prodName = document.createElement("p");
-        prodName.textContent = products.name;
-        prodName.style.textAlign = "center";
-        prodName.style.fontSize = "20px";
-        
-
-
-
-        div.append(img, prodName, prodPrice);
-
-        
-
-        allProducts.appendChild(div);
-
-
-     });
-
+    }
     
 
 
