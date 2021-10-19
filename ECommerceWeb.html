@@ -20,7 +20,7 @@
         img{
             width: 80%;
         }
-
+ 
         /* div{
             border: 1px solid black;
         } */
@@ -30,8 +30,10 @@
 <body>
     <h1>LocalStorage</h1>
 
-
+    <a href="cart.html"><button>Go to Cart</button></a>
     <div id="allProducts"></div>
+    
+   
 </body>
 </html>
 <script>
@@ -134,6 +136,7 @@
                
                 addToCartBtn.onclick = function(){
                     addToCart(products);
+                    showAlert(products);
                 };
 
             div.append(img, prodName, prodPrice , btnDiv);
@@ -166,10 +169,33 @@
         
         localStorage.setItem("cart", JSON.stringify(productsCart) ); //here we set all the products in localStorage in JSON formate
 
+        // console.log(productsCart);
+    }
 
-        console.log(productsCart);
+    function showAlert(p){
+        let data = JSON.parse(localStorage.getItem("cart"));
 
-}
+        let name = p.name;
+        let price = p.price;
+
+        let c = 0;
+
+        data.forEach(function(data){
+            if( name === data.name && price === data.price){
+                c++;
+            }
+            if( c == 2){
+                alert("This prod is alredy in your cart");
+                // break;
+            }
+        })
+    }
+        
+      
+
+        
+
+        
     
 
 

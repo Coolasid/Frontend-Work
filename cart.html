@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #allProducts {
+            margin: 3% 5% 10% 5%;
+            /* border: 1px solid black; */
+            height: 600px;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap: 5%;
+            overflow: scroll;
+        }
+    
+        img {
+            width: 80%;
+        }
+    
+        /* div{
+                border: 1px solid black;
+            }
+
+        span{
+             border: 1px solid black;
+        } */
+
+        .text{
+            font-size: 17px;
+            font-weight: 500;
+            margin: 1%;
+        }
+    </style>
+</head>
+<body>
+        <h1>Welcome to Cart</h1>
+        <div>
+            <div class="text"> Total products in your cart: <span id="qty"></span></div>
+            <div class="text"> Total price: <span id="total"></span></div>
+            <div class="text"> You can Apply promo to get instant 30% discount <span> <input type="text" id="inp"> <button id="btn" onclick="apply()"> Submit</button></span></div>
+            <a href="success.html"><button>Check Out</button></a>
+        </div>
+        <div id="allProducts"></div>
+</body>
+</html>
+<script>
+
+    // 1. get the data from localStorage
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    
+   
+    
+
+
+
+   
+    //qyt in cart->
+    var c = 0;
+    cart.forEach(function(el){
+        c++;
+        
+    })
+    let qty = document.getElementById("qty");
+        qty.textContent = c;
+        qty.style.fontSize = "17px";
+        qty.style.fontWeight = '700'
+    
+
+    //total price in cart->
+    var sum = 0;
+    cart.forEach(function(el){
+        sum = sum + +(el.price);
+    })
+    let total = document.getElementById("total");
+        total.textContent = sum;
+
+
+    //apply promo->
+        var ans = 0;
+        function apply() {
+            let val = document.getElementById("inp").value;
+            if (val == "masai30") {
+                ans = (sum* 0.7);
+            }
+            total.textContent = Number.parseFloat(ans).toFixed(2);
+        }
+
+
+
+    let allProducts = document.getElementById("allProducts");
+
+
+        function showProducts() {
+
+
+            cart.forEach(function (cart) {
+
+
+                // console.log(products.name);
+
+
+
+                let div = document.createElement("div");
+                // div.style.border = "1px solid black";
+
+                let img = document.createElement("img");
+                img.src = cart.img;
+                img.style.margin = "0 0 0 10%"
+
+
+                let prodPrice = document.createElement("p");
+                prodPrice.textContent = cart.price;
+                prodPrice.style.textAlign = "center";
+                prodPrice.style.fontSize = "20px";
+                prodPrice.style.fontWeight = "600";
+
+
+                let prodName = document.createElement("p");
+                prodName.textContent = cart.name;
+                prodName.style.textAlign = "center";
+                prodName.style.fontSize = "20px";
+
+
+                
+                 div.append(img, prodName, prodPrice);
+
+
+
+
+                allProducts.appendChild(div);
+
+
+            });
+
+        }
+
+        showProducts();
+
+</script>
