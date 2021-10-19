@@ -152,14 +152,20 @@
 
     // check if cart exists in localStorage
 
-    // let arr = ["virat", "dhoni"];
+    
     if( localStorage.getItem("cart") === null){
-        localStorage.setItem("cart", JSON.stringify([]));
+        localStorage.setItem("cart", JSON.stringify([])); // here we create a cart in JSON 
     }
 
    
     function addToCart(p){
-        let productsCart = JSON.parse( localStorage.getItem("cart"));
+        
+        let productsCart = JSON.parse(localStorage.getItem("cart")); // here we get the cart items in obj
+
+        productsCart.push(p);  //here we push the items whenever we click on add to cart
+        
+        localStorage.setItem("cart", JSON.stringify(productsCart) ); //here we set all the products in localStorage in JSON formate
+
 
         console.log(productsCart);
 
