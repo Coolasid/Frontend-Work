@@ -105,13 +105,16 @@
 
     <!-- /* common in all pages */ -->
     <div class="sign-up">
-        <form onsubmit="adduser(event)" id="form">
+        <form id="myForm" onsubmit="signUp(event)">
+           
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account!</p>
             <hr>
+            
             <input id="name" type="name" class="inputbox" placeholder="Name" required>
            
             <input id="email" type="Email" class="inputbox" placeholder="Email" required>
+            
             <input id="password" type="password" class="inputbox" placeholder="Password" required>
             
            
@@ -123,5 +126,43 @@
 </body>
 </html>
 <script>
+
+    function signUp(e){
+
+    e.preventDefault();
+    
+    let myForm = document.getElementById("myForm")
+
+    let name = myForm.name.value;
+    // 
+
+    let email = myForm.email.value;
+    let password = myForm.password.value;
+        // console.log(name,email,password)
+
+    if( localStorage.getItem("user") === null){
+        localStorage.setItem("user", JSON.stringify([]));
+    }
+
+    //0. grab and prepare user data
+   let user = {
+
+    name,
+    email,
+    password
+   }
+
+
+   //1. ger array from localstorage
+
+    let arr = JSON.parse(localStorage.getItem("user")); //existing users
+
+    //2. push new users to array
+
+    arr.push(user); //added a new user
+
+    localStorage.setItem("user",JSON.stringify(arr));
+       
+    }
 
 </script>
