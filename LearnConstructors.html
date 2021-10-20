@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //functions -> objects=>
+
+            // var person = {
+            //     name:"sid",
+            //     myName:function(){  //obj method
+            //         console.log(person.name)
+            //     }
+            // }
+
+                 // person.myName();
+
+    //above code can also be written as=>
+
+            // var person = {
+            //     name:"sid",
+            //     myName:function(){
+            //         console.log(this.name)  //we can use "this" it refers to owner
+            //     }
+            // }
+            
+            //  person.myName();
+
+
+
+
+    // function myName(){
+    //     console.log(this); //here this is refering to global obj
+    // }
+
+    // myName();
+
+
+    //syntex of Constructor Function=>
+    
+    function player(n, s){
+        this.name= n;
+        this.series = s;
+    }
+
+    var obj = new player("sid", "family men"); //new keyword make sure that obj created 
+
+    var obj2 = new player("siddesh", "patil")
+
+    
+    console.log(obj2);
+
+</script>
