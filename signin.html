@@ -85,7 +85,7 @@ a {
 
 <body>
     <div id="header">
-        <div id="homePage">Home</div>
+        <div id="homePage" > Home</div>
         <div id="signUp">Signup</div>
         <div id="login">Login</div>
     </div>
@@ -112,12 +112,57 @@ a {
  
 
             let email = myForm.email.value;
-            let password = myForm.password.value;
+            let password = myForm.pass.value;
         // console.log(,email,password)
 
 
-        
+        let allUsers = JSON.parse(localStorage.getItem("user"))
+
+        var flag = true;
+        allUsers.forEach(function(user) {
+           
+            
+
+            if(email == user.email && password == user.password){
+               flag = false;
+               window.location.href = "movieHomePage.html"
+              
+            }
+         });
+
+        if (flag) {
+            alert("enter valid information ")
+        }
+
     }
    
+  let homePage = document.getElementById("homePage");
+
+    function home() {
+        window.location.href = "movieHomePage.html";
+    }
+
+    homePage.addEventListener("click", home);
+
+
+
+
+    let signUp1 = document.getElementById("signUp");
+
+    function signUp() {
+        window.location.href = "signup.html";
+    }
+
+    signUp1.addEventListener("click", signUp);
+
+
+
+    let login = document.getElementById("login");
+
+    function signin() {
+        window.location.href = "signin.html";
+    }
+
+    login.addEventListener("click", signin);
 </script>
 </html>

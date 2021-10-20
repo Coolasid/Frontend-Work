@@ -17,7 +17,7 @@
             width: 40%;
             height: 50px;
             margin: 0 0 0 55%;
-            background-color: white;
+            background-color:#00AA8A ;
             border-radius: 10px;
             display: grid;
             grid-template-columns: auto auto auto;
@@ -26,7 +26,7 @@
         }
 
         #homePage:hover, #signUp:hover, #login:hover{
-           color: turquoise;
+           color: white;
            cursor: pointer;
         }
     </style>
@@ -39,3 +39,33 @@
     </div>
 </body>
 </html>
+<script>
+  let homePage = document.getElementById("homePage");
+
+    function home() {
+        window.location.href = "movieHomePage.html";
+    }
+
+    homePage.addEventListener("click", home);
+
+
+
+
+    let signUp1 = document.getElementById("signUp");
+
+    function signUp() {
+        window.location.href = "signup.html";
+    }
+
+    signUp1.addEventListener("click", signUp);
+
+
+
+    let login = document.getElementById("login");
+
+    function signin() {
+        window.location.href = "signin.html";
+    }
+
+    login.addEventListener("click", signin);
+</script>

@@ -126,6 +126,9 @@
 </body>
 </html>
 <script>
+    if (localStorage.getItem("user") === null) {
+            localStorage.setItem("user", JSON.stringify([]));
+        }
 
     function signUp(e){
 
@@ -140,9 +143,7 @@
     let password = myForm.password.value;
         // console.log(name,email,password)
 
-    if( localStorage.getItem("user") === null){
-        localStorage.setItem("user", JSON.stringify([]));
-    }
+    
 
     //0. grab and prepare user data
    let user = {
@@ -158,11 +159,56 @@
     let arr = JSON.parse(localStorage.getItem("user")); //existing users
 
     //2. push new users to array
+    let flag = true;
 
-    arr.push(user); //added a new user
+     //added a new user
 
-    localStorage.setItem("user",JSON.stringify(arr));
-       
+     arr.forEach(function(user){
+        if(email == user.email){
+            flag = false;
+            alert("Email already Exist")
+        }
+     });
+
+     if(flag){
+         arr.push(user);
+         localStorage.setItem("user", JSON.stringify(arr));
+         window.location.href="signin.html"
+     }
+
+
+    
+    
+    
+}
+
+
+    let homePage = document.getElementById("homePage");
+
+    function home(){
+            window.location.href = "movieHomePage.html";
     }
 
+    homePage.addEventListener("click", home);
+
+
+
+
+    let signUp1 = document.getElementById("signUp");
+
+        function signUp() {
+            window.location.href = "signup.html";
+        }
+
+        signUp1.addEventListener("click", signUp);
+
+
+
+    let login = document.getElementById("login");
+
+        function signin() {
+            window.location.href = "signin.html";
+        }
+
+        login.addEventListener("click", signin);
 </script>
