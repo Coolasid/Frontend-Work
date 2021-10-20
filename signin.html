@@ -64,9 +64,9 @@ a {
 }
 
 #header{
-            width: 40%;
+            width: 80%;
             height: 50px;
-            margin: 0 0 0 55%;
+            margin: 0 0 0 10%;
             background-color: white;
             border-radius: 10px;
             display: grid;
@@ -74,21 +74,50 @@ a {
             box-sizing: border-box;
             padding: 1% 0 0 0;
         }
+        #header>div{
+            padding: 4% 0 0 0;
+        }
 
         #homePage:hover, #signUp:hover, #login:hover{
            color: #131a27;
            cursor: pointer;
            /* border-bottom: 5px solid #131a27; */
         }
+        #headBox{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        img{
+            width: 40%;
+            height: 80%;
+             cursor: pointer;
+        }
+        .imgBox{
+            width: 49%;
+            /* background-color: white; */
+            border-radius: 10px;
+        }
 
 
 </style>
 
 <body>
-    <div id="header">
-        <div id="homePage" > Home</div>
-        <div id="signUp">Signup</div>
-        <div id="login">Login</div>
+    <div id="headBox">
+        <div id="name">
+            <div class="imgBox">
+                <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/07/Hotstar_2018.svg/revision/latest?cb=20190427142129" />
+            </div>
+        </div>
+        <div>
+            <div id="header">
+                <div id="homePage">Home</div>
+                <div id="signUp">Signup</div>
+                <div id="login">Login</div>
+            </div>
+        </div>
+    
     </div>
 
     <div class="sign-up">
