@@ -46,16 +46,117 @@
 
     //syntex of Constructor Function=>
     
-    function player(n, s){
-        this.name= n;
-        this.series = s;
-    }
+        // function player(n, s){
+        //     this.name= n;
+        //     this.series = s;
+        // }
 
-    var obj = new player("sid", "family men"); //new keyword make sure that obj created 
+        // var obj = new player("sid", "family men"); //new keyword make sure that obj created 
 
-    var obj2 = new player("siddesh", "patil")
+        // var obj2 = new player("siddesh", "patil")
 
+        
+        // console.log(obj2);
     
-    console.log(obj2);
 
+
+    //use of "call"=>
+
+        /*
+        var person = {
+            name:'sid'
+        }
+
+        var person2 = {
+            name:"siddesh"
+
+        }
+
+        function myName(){
+            console.log(this.name);
+        }
+
+        // myName.call(person); //this= person
+
+        // myName.call(person2); //this = person2
+        */
+
+
+        /*
+        var person = {
+                name: 'sid'
+            }
+
+            var person2 = {
+                name: "siddesh"
+
+            }
+        function myName(m) {
+                console.log(this.name,m);
+            } 
+
+        myName.call(person2, 21)
+            */
+
+
+            /*
+         var person = {
+                name: 'sid'
+            }
+
+            var person2 = {
+                name: "siddesh"
+
+            }
+            function myName(m,c) {
+                this.age = m;
+                this.city = c;
+            }
+
+            myName.call(person2, 21,"pune")
+            console.log(person2)
+            */
+
+
+
+
+    //use of apply=>
+
+    /*
+            var person = {  
+                    name: 'sid'
+                }
+
+                var person2 = {
+                    name: "siddesh"
+
+                }
+                function myName(m, c) {
+                    this.age = m;
+                    this.city = c;
+                }
+
+                myName.apply(person2, [21, "pune"])  //we have to pass the parameters in array formate
+                console.log(person2)
+    */
+
+   //use of bind=>
+
+        var person = {
+                name: 'sid'
+            }
+
+            var person2 = {
+                name: "siddesh"
+
+            }
+            function myName(m, c) {
+                this.age = m;
+                this.city = c;
+            }
+
+           var myBind =  myName.bind(person2, 21, "pune")  //bind is like a function we have to execiute it
+            
+            myBind();
+            console.log(person2)
 </script>
