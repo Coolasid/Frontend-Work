@@ -14,6 +14,7 @@
             overflow: scroll;
         }
 
+        
         #headBox{
             width: 100%;
             display: grid;
@@ -39,7 +40,7 @@
            color: white;
            cursor: pointer;
         }
-        img{
+        .img{
             width: 40%;
             height: 80%;
             cursor: pointer;
@@ -48,22 +49,41 @@
             width: 50%;
             
         }
+        
+           
 
-            div{
-                border: 1px solid black;
-            }
-
-        #slideShow{
-            margin: 1% 0 0 0;
+        #secondBox{
+            overflow: scroll;
+            height: 620.5px;
+        }
+        #mySlideShow{
+            /* margin:  0 0 0; */
             height: 400px;
         }
+        ::-webkit-scrollbar {
+            display: none;
+            }
+
+        #allMovies{
+            width: 80%;
+            height: 1200px;
+            margin: 1% auto auto auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /* grid-column-gap: 2%; */
+        }
+
+         div{
+                border: 1px solid black;
+            }
     </style>
 </head>
 <body>
+<div id="firstBox">
     <div id="headBox">
         <div id="name">
             <div class="imgBox">
-            <img src="https://static.wikia.nocookie.net/logopedia/images/0/07/Hotstar_2018.svg/revision/latest?cb=20190427142129" />
+            <img src="https://static.wikia.nocookie.net/logopedia/images/0/07/Hotstar_2018.svg/revision/latest?cb=20190427142129" class="img"/>
             </div>
         </div>
         <div>
@@ -75,10 +95,20 @@
         </div>
         
     </div>
+</div>
 
-    <div id="slideShow">
+<div id="secondBox" >
+    <div id="mySlideShow">
 
     </div>
+    
+    <div id="allMovies">
+
+    </div>
+
+</div>
+
+
 </body>
 </html>
 <script>
@@ -89,8 +119,6 @@
     }
 
     homePage.addEventListener("click", home);
-
-
 
 
     let signUp1 = document.getElementById("signUp");
@@ -111,5 +139,209 @@
 
     login.addEventListener("click", signin);
 
+
+
+    // making SlideShow->
+
+    var images = ["https://live.staticflickr.com/4191/34054101300_067a8df1af_b.jpg",
+                   "https://www.imago-images.com/bild/st/0097823035/w.jpg",
+                    "https://webneel.net/file/images/11-16/8-xmen-movie-poster-design.jpg",
+                    "http://themoviemensch.com/wp-content/uploads/2018/04/avengers-logo.jpg"
+                ];
+
+
+    let cont = document.getElementById("mySlideShow")
+
+
+    function startSlideShow(){
+
+
+        //1.
+
+        
+        let counter = 0;
+
+         let img = document.createElement("img");
+        img.src = images[counter];
+        img.style.width = "100%";
+        img.style.height = "100%"
+        cont.appendChild(img);
+        counter++;
+        setInterval(function(){
+
+            cont.textContent="";
+            if( counter === images.length){
+                counter=0;
+            }
+
+            let img = document.createElement("img");
+            img.src = images[counter];
+            img.style.width = "100%";
+            img.style.height = "100%"
+            cont.appendChild(img);
+            counter++;
+            
+        },5000)
+
+        
+
+
+    }
+
+    // startSlideShow()
+
+
+    // creating dataBase of movies->
+
+    var moviesData = [
+
+        {
+            name:"Free Guy",
+            releaseDate:"Aug 13",
+            imbdRating:7.3,
+            img:"https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_QL75_UY281_CR3,0,190,281_.jpg"
+
+
+        },
+
+        {
+            name: "Black Widow",
+             releaseDate: "July 9",
+            imbdRating: 6.9,
+            img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/042_bluebayou_digital_keyart_teaser_r16_lg.jpg"
+
+
+        },
+
+        {
+           name: "Sardar Udham",
+            releaseDate: "Oct 16",
+            imbdRating: 9.2,
+            img: "https://upload.wikimedia.org/wikipedia/en/5/5b/Sardar_Udham_poster.jpg"
+        
+
+        },
+
+        {
+            name: "Bell Bottom",
+            releaseDate: "Aug 19",
+            imbdRating: 7.8,
+            img: "https://upload.wikimedia.org/wikipedia/en/2/21/Bell_Bottom_film_Poster.jpg"
+            
+
+        },
+
+        {
+            name: "Shershaah",
+            releaseDate: "Aug 12",
+            imbdRating: 8.7,
+            img: "https://upload.wikimedia.org/wikipedia/en/9/91/Shershaah_film_poster.jpg"
+            
+
+        },
+
+        {
+            name: "Bhuj",
+            releaseDate: "Aug 13",
+            imbdRating: 7.9,
+            img: "https://upload.wikimedia.org/wikipedia/en/4/42/Bhuj-_The_Pride_of_India_film_poster.jpg"
+            
+
+        },
+
+        {
+           name: "Zombie Reddy",
+            releaseDate: "Feb 5",
+            imbdRating: 6.8,
+            img: "https://upload.wikimedia.org/wikipedia/en/c/cd/Zombie_Reddy.jpg"
+        
+
+        },
+
+        {
+            name: "Sarrainodu",
+             releaseDate: "Apr 22",
+            imbdRating: 8.9,
+            img: "https://upload.wikimedia.org/wikipedia/en/d/d6/Sarrainodu_poster.jpg"
+
+
+        },
+
+        {
+            name: "Yevadu",
+             releaseDate: "Jan 12",
+            imbdRating: 7.4,
+            img: "https://upload.wikimedia.org/wikipedia/en/e/e7/Yevadu_poster.jpg"
+
+
+        }
+
+    ]
+
+
+    //pushing movies data in localstorage->
+        
+
+    
+    localStorage.setItem("database",JSON.stringify(moviesData));
+    
+    
+    function showMovies(){
+
+        moviesData.forEach(function(movie){
+
+
+            let moviesBox = document.getElementById("allMovies")
+            
+                let movieName = movie.name;
+                
+
+                let releaseDate = movie.releaseDate;
+
+                let posterImg = movie.img;
+
+                let imdbRating = movie.imbdRating;
+
+                // console.log(movieName, releaseDate, posterImg, imdbRating)
+
+
+            let Div = document.createElement("div");
+                let imgBox = document.createElement("div");
+                imgBox.style.width= "50%"
+                imgBox.style.height= "70%"
+                imgBox.style.margin= "0 0 0 25%"
+                    let img = document.createElement("img");
+                    img.style.width = "100%"
+                    img.style.height = "100%"
+                    img.src = posterImg;
+                    
+                    imgBox.appendChild(img);
+                
+                let movieName1 = document.createElement("div");
+                movieName1.textContent = movieName;
+                movieName1.style.fontWeight = "700"
+                movieName1.style.marginTop = "5px"
+
+                let relDate = document.createElement("div");
+                relDate.textContent =  releaseDate;
+                relDate.style.fontWeight = "700"
+                relDate.style.marginTop = "5px"
+
+                let imdb = document.createElement("div");
+                imdb.textContent = "IMDb Rating  "+imdbRating;
+                imdb.style.fontWeight = "700"
+                imdb.style.marginTop = "5px"
+                
+
+
+
+
+                Div.append(imgBox,movieName1, relDate, imdb);
+            allMovies.appendChild(Div);
+        })
+    }
+
+    showMovies();
     
 </script>
+
