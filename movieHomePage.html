@@ -387,7 +387,7 @@
             //1. arrry data will be same just we have to reShuffal it based in rating
             //2. show the reshuffeld array
 
-            let arr = moviesData.sort(function(a, b){
+             moviesData.sort(function(a, b){
 
                 return a.imbdRating - b.imbdRating;
              })
@@ -395,60 +395,7 @@
 
               let moviesBox = document.getElementById("allMovies")
               moviesBox.textContent = ""
-            function showMovies() {
-
-                arr.forEach(function (movie) {
-
-
-                    let moviesBox = document.getElementById("allMovies")
-
-                    let movieName = movie.name;
-
-
-                    let releaseDate = movie.releaseDate;
-
-                    let posterImg = movie.img;
-
-                    let imdbRating = movie.imbdRating;
-
-                    // console.log(movieName, releaseDate, posterImg, imdbRating)
-
-
-                    let Div = document.createElement("div");
-                    let imgBox = document.createElement("div");
-                    imgBox.style.width = "50%"
-                    imgBox.style.height = "70%"
-                    imgBox.style.margin = "0 0 0 25%"
-                    let img = document.createElement("img");
-                    img.style.width = "100%"
-                    img.style.height = "100%"
-                    img.src = posterImg;
-
-                    imgBox.appendChild(img);
-
-                    let movieName1 = document.createElement("div");
-                    movieName1.textContent = movieName;
-                    movieName1.style.fontWeight = "700"
-                    movieName1.style.marginTop = "5px"
-
-                    let relDate = document.createElement("div");
-                    relDate.textContent = releaseDate;
-                    relDate.style.fontWeight = "700"
-                    relDate.style.marginTop = "5px"
-
-                    let imdb = document.createElement("div");
-                    imdb.textContent = "IMDb Rating  " + imdbRating;
-                    imdb.style.fontWeight = "700"
-                    imdb.style.marginTop = "5px"
-
-
-
-
-
-                    Div.append(imgBox, movieName1, relDate, imdb);
-                    allMovies.appendChild(Div);
-                })
-            }
+            
             showMovies();
         }
 
@@ -460,67 +407,14 @@
             //1. arrry data will be same just we have to reShuffal it based in rating
             //2. show the reshuffeld array
 
-            let arr = moviesData.sort(function (a, b) {
+            moviesData.sort(function (a, b) {
 
                 return b.imbdRating - a.imbdRating;
             })
 
               let moviesBox = document.getElementById("allMovies")
             moviesBox.textContent = ""
-            function showMovies() {
-
-                arr.forEach(function (movie) {
-
-
-                    let moviesBox = document.getElementById("allMovies")
-
-                    let movieName = movie.name;
-
-
-                    let releaseDate = movie.releaseDate;
-
-                    let posterImg = movie.img;
-
-                    let imdbRating = movie.imbdRating;
-
-                    // console.log(movieName, releaseDate, posterImg, imdbRating)
-
-
-                    let Div = document.createElement("div");
-                    let imgBox = document.createElement("div");
-                    imgBox.style.width = "50%"
-                    imgBox.style.height = "70%"
-                    imgBox.style.margin = "0 0 0 25%"
-                    let img = document.createElement("img");
-                    img.style.width = "100%"
-                    img.style.height = "100%"
-                    img.src = posterImg;
-
-                    imgBox.appendChild(img);
-
-                    let movieName1 = document.createElement("div");
-                    movieName1.textContent = movieName;
-                    movieName1.style.fontWeight = "700"
-                    movieName1.style.marginTop = "5px"
-
-                    let relDate = document.createElement("div");
-                    relDate.textContent = releaseDate;
-                    relDate.style.fontWeight = "700"
-                    relDate.style.marginTop = "5px"
-
-                    let imdb = document.createElement("div");
-                    imdb.textContent = "IMDb Rating  " + imdbRating;
-                    imdb.style.fontWeight = "700"
-                    imdb.style.marginTop = "5px"
-
-
-
-
-
-                    Div.append(imgBox, movieName1, relDate, imdb);
-                    allMovies.appendChild(Div);
-                })
-            }
+           
             showMovies();
 
         }
