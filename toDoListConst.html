@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style>
+
+        #bigBox{
+            height: 400px;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        /* div{
+            border: 1px solid black;
+        } */
+
+        #firstBox{
+            width: 50%;
+            height: 100%;
+            margin: auto;
+        }
+        #inp{
+            margin: 0 0 0 5%;
+            height: 30px;
+        }
+
+        #inpDate{
+            margin: 0 0 0 7%;
+            height: 30px;
+        }
+        #sel{
+            margin: 0 0 0 30%;
+        }
+        #sub{
+            margin: 3% 0 0 35% ;
+        }
+        table{
+            border: 1px solid black;
+        }
+        tbody{
+            border: 1px solid black;
+        }
+        td{
+            border: 1px solid black;
+        }
+        tr{
+            border: 1px solid black;
+        }
+        #qty{
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="bigBox">
+        <div>
+            <div id="firstBox">
+
+                <form onsubmit="addTask(event)" id="frm">
+                    <lable>Name Of Task</lable>
+                    <input type="text" id="inp" required>
+
+                    <br>
+                    <label>Date Of Task</label>
+                    <input type="date" id="inpDate" required>
+                    <br>
+                    <label>Status</label>
+                    <select id="sel">
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                    <br>
+                    <input type="submit" id="sub" required>
+                </form>
+                <table id="tbl">
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Date</td>
+                            <td>Status</td>
+                            <td>Done</td>
+                            <td>Remove</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <div>
+
+            No of Tasks <span id="qty">0</span>
+        </div>
+
+
+    </div>
+</body>
+</html>
+<script>
+    var c = 0;
+    function makeConst(n,d,s){
+        this.name = n;
+        this.date = d,
+        this.status = s
+    }
+
+    var table = document.getElementById("tbl");
+    function addTask(event){
+        c++;
+        event.preventDefault();
+
+        let name = document.getElementById("inp").value;
+        let date = document.getElementById("inpDate").value;
+        let status = document.getElementById("sel").value;
+
+        let task = new makeConst(name,date,status);
+
+        // console.log(task);
+
+        
+        var row = document.createElement("tr");
+
+            let firstCol = document.createElement("td");
+            firstCol.textContent = task.name;
+
+            let secondCol = document.createElement("td");
+            secondCol.textContent = task.date;
+
+            let thirdCol = document.createElement("td");
+            thirdCol.textContent = task.status;
+
+            let fourthCol = document.createElement("td");
+            fourthCol.textContent = "done";
+            fourthCol.addEventListener("click",doneGreen)
+
+            let fifthCol = document.createElement("td");
+            fifthCol.textContent = "complete";
+            fifthCol.addEventListener("click",removeTask)
+
+                row.append(firstCol,secondCol,thirdCol,fourthCol,fifthCol);
+        
+        table.appendChild(row);
+      
+        qtyTask();
+    }
+
+    function qtyTask(){
+        let qty = document.getElementById("qty")
+        qty.textContent = c;
+    }
+
+    
+    function doneGreen(e){
+            e.target.parentNode.style.backgroundColor = "green";
+    }
+
+
+    function removeTask(e){
+        e.target.parentNode.textContent = ""
+        c--;
+        qty.textContent = c;
+    }
+    
+</script>
+

@@ -35,8 +35,7 @@
             //  person.myName();
 
 
-
-
+    
     // function myName(){
     //     console.log(this); //here this is refering to global obj
     // }
@@ -59,6 +58,22 @@
         // console.log(obj2);
     
 
+
+        //creating Nike Products (obj) using function->
+            /*
+            function NikeProd(n, p, y, t) {
+                    this.name = n;
+                    this.price = p,
+                    this.yearOfManf = y,
+                    this.type = t
+            }
+
+            let prod1 = new NikeProd("black shaded slippers","2000","2020","slippers")
+            let prod2 = new NikeProd("shoes", "5000","2021","causal");
+            let prod3 = new NikeProd("sandal", "1500", "2021","dalywear");
+
+                console.log(prod1,prod2,prod3)
+                */
 
     //use of "call"=>
 
@@ -141,7 +156,7 @@
     */
 
    //use of bind=>
-
+                /*
         var person = {
                 name: 'sid'
             }
@@ -159,4 +174,106 @@
             
             myBind();
             console.log(person2)
+            */
+
+
+
+           // create a newspaper factory publishing newspaper=>
+
+           // headline, date, id, name of newspaper, city name->
+
+           /*
+           function newspaper(n){
+               this.heading = "students have finally moved to unit 3",
+               this.date = new Date().getDay(),
+               this.id = Math.random()*10,
+               this.nameOfNewspaper = n
+               
+           }
+
+           var i = 0;
+           while(i<10){
+               let n = new newspaper("TOI");
+               i++;
+
+               console.log(n);
+           }
+
+           */
+
+
+           //new->
+
+        //    new Date()
+        // let str = new String("renuka")  
+        //    console.log(str.toString());
+
+        //call, apply, bind
+
+        /*
+           let person = {
+               
+             name:"siddesh",
+             nickName:"sid",
+
+             showNickName(){
+
+                console.log(this.nickName)
+
+             }
+           }
+
+           let person2 = {
+
+                name: "patil",
+                nickName:"pat"
+                
+            }
+
+            person.showNickName.call(person2)
+            console.log(person2 )
+            */
+
+
+
+            //bluePrint
+            function person(n,a){
+                this.name = n,
+                this.age = a
+            }
+
+            function teacher(s,n,a){
+
+                person.call(this,n,a)
+
+
+
+                this.subject= s
+                
+                 
+            }
+
+            function student(n,a){
+                person.apply(this, [n, a])
+                this.class="10th"
+                
+
+
+            }
+
+            function player(n,a){
+                this.sport= "cricket"
+                let myplayer = person.bind(this, n, a)
+                myplayer();
+            }
+
+            // let t1 = new teacher("DOM","sid",30);
+            //     // console.log(t1)
+
+            // let s1 = new student("siddesh",20);
+            // console.log(s1);
+
+            let p1= new player("siddesh",20);
+            console.log(p1);
+
 </script>
