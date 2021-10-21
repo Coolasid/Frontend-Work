@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    function familyTree(f,m){
+        this.Father = f,
+        this.Mother = m
+    }
+
+    let grandParentsFather = new familyTree("Mr. Jagannath Patil","Mrs. Shashikala Patil")
+
+    let grandParentsMother = new familyTree("Mr. Ramesh Patil ","Mrs. Kamal Patil")
+
+    let parents = new familyTree("Mr. Dinesh Patil","Mrs. Archana Patil")
+
+    let father = Object.create(grandParentsFather);
+    father.name = parents.Father;
+
+    let mother = Object.create(grandParentsMother);
+    mother.name = parents.Mother; 
+
+    let Me = new familyTree(father,mother);
+    Me.MyName = "Mr.Siddesh Patil"
+    console.log(Me)
+
+    
+
+
+</script>
