@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .train{
+            font-size: 20px;
+            font-weight: 500;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>tatkal booking </h1>
+    <button onclick="checkAvai()" >Check Availability</button>
+    <div class="train">Bangalore to Goa <span id="btog"></span></div>
+    <div class="train">Mumbai to Goa <span id="mtog"></span></div>
+    <div class="train">Pune to Goa <span id="ptog"></span></div>
+</body>
+</html>
+<script>
+
+    let data = ["Virat", "Dhoni", "Rohit", "Alan", "tokyo", "groot", "siddesh", "sid", "shaktiman"];
+    let BtoG = ["Virat","Dhoni","Rohit","Alan","tokyo","groot","siddesh","sid","shaktiman"];
+
+    let MtoG = ["Virat", "Dhoni", "Rohit", "Alan", "tokyo", "groot", "siddesh", "sid", "shaktiman"];
+
+    let PtoG = ["Virat", "Dhoni", "Rohit", "Alan", "tokyo", "groot", "siddesh", "sid", "shaktiman"];
+
+
+   async function checkAvai(){
+        let interval = setInterval(cancelTicket, 3000)
+        let add = setInterval(addPeople,6000)
+        let promise = new Promise(function(resolve, reject){
+        
+
+            setInterval(function(){
+
+                if (BtoG.length === 4) {
+
+                    resolve(`BtoG is available Book ticket from Bangalore to Goa`)
+                    clearInterval(interval)
+                    window.location.href = "Booking.html"
+                } else if (MtoG.length === 4) {
+
+                    resolve(`MtoG is available Book ticket from Mumbai to Goa`)
+                     clearInterval(interval)
+                    window.location.href = "Booking.html"
+                } else if (PtoG.length === 4) {
+
+                    resolve(`PtoG is available Book ticket from Pune to Goa`)
+                     clearInterval(interval)
+                    window.location.href = "Booking.html"
+                }
+
+            },1000)
+  
+        });
+
+        let res = await promise;
+       alert(res)
+
+    }
+
+
+    function cancelTicket(){
+
+        let btg = document.getElementById("btog");
+        let mtg = document.getElementById("mtog");
+        let ptg = document.getElementById("ptog");
+
+        
+
+        //canclltion speed should be random
+
+        let cancellingSpeed1 = Math.floor(Math.random()*5)
+        
+        let cancellingSpeed2 = Math.floor(Math.random() * 5)
+        
+        let cancellingSpeed3 = Math.floor(Math.random() * 2)
+        
+
+        setTimeout(function(){
+
+            BtoG.pop();
+            
+        }, cancellingSpeed1*1000)
+        btg.textContent = BtoG.length;
+        btg.style.fontSize= "30px"
+ 
+        setTimeout(function () {
+
+           MtoG.pop();
+           
+        }, cancellingSpeed2 * 1000)
+        mtg.textContent = MtoG.length;
+        mtg.style.fontSize = "30px"
+
+        setTimeout(function () {
+
+            PtoG.pop();
+            
+        }, cancellingSpeed3 * 1000)
+        ptg.textContent = PtoG.length;
+        ptg.style.fontSize = "30px"
+
+        console.log(BtoG,MtoG,PtoG)
+
+        if(BtoG.length == 0 && PtoG.length == 0 && MtoG.length == 0){
+            clearInterval(interval)
+        }
+
+    }
+
+
+    function addPeople(){
+
+        let ads1 = Math.floor(Math.random()*10);
+        let ads2 = Math.floor(Math.random()*10);
+        let ads3 = Math.floor(Math.random()*10);
+
+
+        setTimeout(function(){
+            BtoG.push(data[ads1])
+        },ads1*1000)
+
+        setTimeout(function(){
+            MtoG.push(data[ads2])
+        },ads2*1000)
+
+        setTimeout(function(){
+            PtoG.push(data[ads3])
+        },ads3*1000)
+    }
+
+
+
+    
+
+</script>

@@ -26,7 +26,7 @@
             
 
             <div class="dose">
-                No. of Dose left <span id="left">7</span>
+                No. of Dose left <span id="left">3</span>
             </div>
             <div class="dose">
                 No. of People in Row <span id="people"></span>
@@ -36,73 +36,88 @@
 </html>
 <script>
     let queue = ["Messi","Ronaldo","siddesh","shinchan"];
+    let age = [42,50,42,22];
 
-    var doseLeft = document.getElementById("left");
-    var people = document.getElementById("people");
-    var c = 7;
-
+    var c = 4;
+    let left = document.getElementById("left");
+    let people = document.getElementById("people");
     
+    people.textContent= queue.length;
     //1
     function register(){
         
-        var name = document.getElementById("name").value;
-        
-        queue.push(name);
+        let name = document.getElementById("name").value;
+        let ag = +document.getElementById("age").value;
+        people.textContent = queue.length;
+       
 
-    //    people.textContent = queue.length;
-        
-        doseLeft.textContent = c;
-        c--;
-        let message = `${name} your reg successful. now go stand`
+        if( ag >= 60){
+            queue.unshift(name);
+            age.unshift(ag);
 
-        alert(message);
+            let m = `${name} your reg is successful and as you are above 60 so you will get vaccinated first`
+            alert(m)
+            console.log(queue,age)
+        }
+        else{
+            queue.push(name);
+            age.push(ag);
+            let k = `${name} your reg is successful go stand in line`
+            alert(k)
+        }
+        
+        
+       
+        
 
         let myPromise = new Promise(function(resolve, reject){
 
             //keep on checking after certain amount of time if promises is fullfilled
-            
-            setInterval(function(){
-
-                if (queue[0] === name) {
-
-                    resolve(`${name} its your turn now!`)
-
-                }
                 
-            },1000);
-
             
+          let int =   setInterval(function(){
+                if (queue[0] === name) {
+                    resolve(`${name} its your turn now!`)
+                    clearInterval(int)
+                }
+            },1000)
 
         });
 
-        myPromise.then(function (res) {
-            alert(res);
-        });
+
+        myPromise.then(function(res){
+            alert(res)
+        })
     }
-
-  
-
-
-
 
     //2
+    
     function startVaccination(){
-
-        queue.shift();
-        console.log(queue);
-        people.textContent = queue.length;
         
-        doseLeft.textContent = c;
+        queue.shift();
+        age.shift();
+        console.log(queue, age);
+        
         c--;
-        if(queue.length == 0){
+        left.textContent = c;
+        if (c == 0) {
+            alert("vaccine are over come next day")
             clearInterval(interval);
         }
+        people.textContent = queue.length;
+        
+        if(queue.length === 0){
+            clearInterval(interval)
+        }
+        
+        
+        
     }
 
-    startVaccination();
-
+    // startVaccination();
+   
 
     let interval = setInterval(startVaccination, 4000);
-
+    // console.log(queue)
 
 </script>
