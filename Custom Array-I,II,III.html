@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+     
+
+    //lenght=>
+       
+        let arr1 = new myArray1("ram", "shyam", "babu");
+        function myArray1(){
+            this.length = arguments.length
+        }
+        console.log(arr1)
+
+
+        
+
+
+    let arr = new myArray("ram", "shyam", "babu");
+
+
+    function myArray() {
+
+        Object.defineProperty(this, "length", {
+
+            value: 0,
+            writable: true,
+            enumerable: false
+
+        })
+        this.length = arguments.length;
+
+
+        for (var i = 0; i < this.length; i++) {
+
+            this[i] = arguments[i];
+
+        }
+
+    }
+
+     //pushing Value in array=>
+
+        myArray.prototype.push1 = function (value) {
+
+
+            let index = this.length;
+
+            this[index] = value;
+
+            this.length++;
+
+        }
+        arr.push1("totla seth")
+        console.log(arr);
+
+
+
+
+    // printing in array format =>
+    // let arr = new myArray("ram", "shyam", "babu");
+        function myArray() {
+
+                Object.defineProperty(this, "length", {
+
+                    value: 0,
+                    writable: true,
+                    enumerable: false
+
+                })
+                this.length = arguments.length;
+
+
+                for (var i = 0; i < this.length; i++) {
+
+                    this[i] = arguments[i];
+
+                }
+
+            }
+
+
+        console.log(Object.values(arr));
+
+
+    //return first element frm array=>
+
+        myArray.prototype.firstEle = function () {
+
+            let index = 0;
+
+            return this[index];
+        }
+
+
+        console.log(arr.firstEle());
+    
+
+    
+     //making Key value pair=>
+
+
+        function myArray(){
+            
+          this.length = arguments.length;
+           
+            for( let i = 0; i < this.length; i++ ){
+
+                this[i] = arguments[i];
+            }
+
+        }
+        
+        console.log(arr);
+
+
+       
+
+   
+
+     //popping Value in array and printing in array format =>
+
+
+        myArray.prototype.pop1 = function () {
+
+
+            let index = this.length-1;
+
+           delete this[index]
+
+            this.length--;
+
+        }
+        arr.pop1()
+        console.log(Object.values(arr));
+        // console.log(arr)
+
+    //reversing array=>
+
+    
+
+     
+            
+
+</script>

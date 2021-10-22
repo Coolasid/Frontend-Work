@@ -173,9 +173,93 @@
     // console.log(arr)
 
     
-    let arr = new myArray(1,2,3);
+//creating Custom arrays=>
 
+            
+    let arr = new myArray("sid","patil","siddesh");
+
+   function myArray(){
+
+       
+
+        this.length = arguments.length;
+
+        for( var i = 0; i< this.length;i++){
+
+            this[i] = arguments[i];
+
+        }
+
+    }
+
+
+    myArray.prototype.push1 = function(value){
+
+        let index = this.length
+
+        this[index] = value;
+    };
+
+    arr.push1("totla seth")
     
+    console.log(arr);
 
+
+    //creating it in array formate=>
+
+                 
+                    let arr = new myArray("sid", "patil", "siddesh");
+
+                    function myArray() {
+
+                        Object.defineProperty(this,"length",{
+                            value:0,
+                            writable:true,
+                            enumerable:false
+                        })
+
+                        this.length = arguments.length;
+
+                        for (var i = 0; i < this.length; i++) {
+
+                            this[i] = arguments[i];
+
+                        }
+
+                    }
+
+                
+                    // myArray.prototype.push1 = function (value) {
+
+                    //     let index = this.length
+
+                    //     this[index] = value;
+                    // };
+
+                    // arr.push1("totla seth")
+
+                    // console.log(Object.values(arr));
+
+
+
+
+                    //popping Value in array and printing in array format =>
+
+
+
+                    
+                        myArray.prototype.pop1 = function () {
+
+
+                            let index = this.length - 1;
+
+                            delete this[index]
+
+                            this.length--;
+
+                        }
+                        arr.pop1()
+                        console.log(Object.values(arr));
+        // console.log(arr)
             
 </script>

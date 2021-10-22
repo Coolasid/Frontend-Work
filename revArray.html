@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+     let arr = new myArray("ram", "shyam", "babu");
+
+
+        function myArray() {
+
+            Object.defineProperty(this, "length", {
+
+                value: 0,
+                writable: true,
+                enumerable: false
+
+            })
+            this.length = arguments.length;
+            for(var i = this.length-1; i>= 0 ;i--){
+               
+                this[`{}`] = arguments[i];
+                
+            
+
+        }
+    }
+
+    
+    var arr1 = Object.values(arr);
+    console.log(arr1)
+    
+</script>
