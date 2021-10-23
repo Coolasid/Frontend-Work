@@ -9,24 +9,157 @@
         input{
             width: 30px;
         }
+        #div1{
+            width: 30%;
+            height: 400px;
+            margin: auto;
+        }
+        /* div{
+            border: 1px solid black;
+        } */
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #foodId{
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
-    <button id="btn">Order Food</button>
+   
     <div>Choose Food Items</div>
-    <input type="checkbox">
+    <input type="checkbox" id="bur">
     <label>Burger</label>
     <br>
-    <input type="checkbox">
+    <input type="checkbox" id="cod">
     <label>Cold-drink</label>
     <br>
-    <input type="checkbox">
+    <input type="checkbox" id="fry">
     <label>Fries</label>
     <br>
-    <input type="checkbox">
+    <input type="checkbox" id="cc">
     <label>Crispy Chicken</label>
     <br>
-    <input type="checkbox">
+    <input type="checkbox" id="Sandw">
     <label>Sandwiches</label>
+    <br>
+
+    <button id="btn" onclick="food()">Order Food</button>
+    <div id="div1">
+
+    </div>
+    <div id="foodId">
+
+    </div>
 </body>
 </html>
+<script>
+
+    function food(){
+        let burg = document.getElementById("bur").checked;
+        let cd = document.getElementById("cod").checked;
+        let fr = document.getElementById("fry").checked;
+        let Cc = document.getElementById("cc").checked;
+        let Sandwiche = document.getElementById("Sandw").checked;
+
+        alert("your order is accepted please wait for 5 sec")
+
+        let myPromise = new Promise(function (resolve, reject) {
+
+         let int =   setInterval(function(){
+                if (burg) {
+
+                    let div = document.getElementById("div1")
+                    div.textContent = "";
+                    let img = document.createElement("img")
+
+                    img.src = "https://static.toiimg.com/photo/79811787.cms"
+
+                    div.appendChild(img)
+
+                    let idDiv = document.getElementById("foodId")
+                    idDiv.textContent = " Your ID:" + Math.floor(Math.random() * 10000)
+                    burg = false;
+
+                }
+
+                if (cd) {
+                    let div = document.getElementById("div1")
+                    div.textContent = "";
+                    let img = document.createElement("img")
+
+                    img.src = "https://owo.in/wp-content/uploads/2020/10/Coca-Cola-Bottle.png"
+
+                    div.appendChild(img)
+
+                    let idDiv = document.getElementById("foodId")
+                    idDiv.textContent = " Your ID:" + Math.floor(Math.random() * 10000)
+                    cd = false;
+                    clearInterval(int);
+                }
+
+                if (fr) {
+                    let div = document.getElementById("div1")
+                    div.textContent = "";
+                    let img = document.createElement("img")
+
+                    img.src = "https://cdn.vox-cdn.com/thumbor/EYOz0wV066jysdbgDCbo6Z85YkE=/0x0:1400x1050/1400x1050/filters:focal(0x0:1400x1050):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/45522676/mcdonalds-fries.0.0.jpg"
+
+                    div.appendChild(img)
+
+                    let idDiv = document.getElementById("foodId")
+                    idDiv.textContent = " Your ID:" + Math.floor(Math.random() * 10000)
+                    fr = false;
+                    clearInterval(int);
+                }
+
+                if (Cc) {
+                    let div = document.getElementById("div1")
+                    div.textContent = "";
+                    let img = document.createElement("img")
+
+                    img.src = "https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Strips.jpg"
+
+                    div.appendChild(img)
+
+                    let idDiv = document.getElementById("foodId")
+                    idDiv.textContent = " Your ID:" + Math.floor(Math.random() * 10000)
+                    Cc = false;
+                    clearInterval(int);
+                }
+
+                if (Sandwiche) {
+                    let div = document.getElementById("div1")
+                    div.textContent = "";
+                    let img = document.createElement("img")
+
+                    img.src = "https://image.shutterstock.com/image-photo/sandwich-ham-cheese-tomatoes-lettuce-260nw-1019452444.jpg"
+
+                    div.appendChild(img)
+
+                    let idDiv = document.getElementById("foodId")
+                    idDiv.textContent = " Your ID:" + Math.floor(Math.random() * 10000)
+                    Sandwiche = false;
+                    clearInterval(int);
+                }
+
+                
+
+
+            },5000)
+            
+            myPromise.then(function (res) {
+                alert(res)
+            })
+
+          
+
+        })
+       
+    }
+
+
+</script>
