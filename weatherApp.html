@@ -26,11 +26,12 @@
 
             let city = document.getElementById("city").value;
 
-
             let res = await  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=43217800e9b2304cb46eb8ce5181fa4c`)
             let data = await res.json();
             console.log(data);
             dataapp(data);
+            
+            
         }
 
         let Div = document.getElementById("data");

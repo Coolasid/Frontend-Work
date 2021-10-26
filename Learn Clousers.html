@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 200px;
+             
+        }
+        #movies{
+            height: 200px;
+            width: 206px;
+            /* border: 1px solid black; */
+            overflow: scroll;
+            border-top: none;
+        }
+        
+::-webkit-scrollbar{
+   display: none;
+}
+    </style>
+</head>
+<body>
+     
+    <input type="text" id="movie" placeholder="Enter movie name" oninput="searchMovies()"> 
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+
+        //closure is related to function
+        //nested function 
+        //there has to be a dependency
+         
+
+        // function greet(){
+        //     let n = "raj";
+        //     return function(){
+
+        //         return function{
+
+        //       console.log(n)
+
+        //         }
+        //     }
+        // }
+
+        // let x = greet();
+
+        // let y = x();
+        // y(); // output is raj
+
+
+        //debouncing
+
+        //search movies = done
+            let moviesDiv = document.getElementById("movies");
+         async function searchMovies(movieName){
+
+            let val = document.getElementById("movie").value
+
+            try{
+            let res = await fetch(`http://www.omdbapi.com/?S=${val}&apikey=f38d4850`)
+
+            let data = await res.json();
+            // console.log(data.Search);
+                let allMovies = data.Search;
+                moviesDiv.innerText = "";
+                allMovies.forEach(function(el){
+                    appendMovies(el.Title)
+                    // console.log(el.Title);
+
+                })
+            
+            
+            }
+            catch(e){
+                console.log(e)
+            }
+ 
+            
+         }
+
+         function appendMovies(movies){
+
+            
+           
+                if(movies === undefined){
+                    return false;
+                }
+
+                let p = document.createElement("p");
+                p.innerText = movies;
+                moviesDiv.append(p)
+        
+            
+         }
+
+
+
+</script>
