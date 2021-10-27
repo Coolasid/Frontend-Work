@@ -25,7 +25,7 @@
 </head>
 <body>
      
-    <input type="text" id="movie" placeholder="Enter movie name" oninput="searchMovies()"> 
+    <input type="text" id="movie" placeholder="Enter movie name" oninput=""> 
     <div id="movies"></div>
 </body>
 </html>
@@ -54,51 +54,46 @@
         // y(); // output is raj
 
 
-        //debouncing
 
-        //search movies = done
-            let moviesDiv = document.getElementById("movies");
-         async function searchMovies(movieName){
+ //debouncing
 
-            let val = document.getElementById("movie").value
+            let moviesDiv = document.getElementById("movies")
+    async function searchMovies(movieName){
 
-            try{
-            let res = await fetch(`http://www.omdbapi.com/?S=${val}&apikey=f38d4850`)
 
-            let data = await res.json();
-            // console.log(data.Search);
-                let allMovies = data.Search;
-                moviesDiv.innerText = "";
-                allMovies.forEach(function(el){
-                    appendMovies(el.Title)
-                    // console.log(el.Title);
+        let res = await fetch(`https://www.omdbapi.com/?S=${movieName}&apikey=f38d4850`)
+        let data = await res.json();
+        console.log(data);
+    }
+       
 
-                })
+
+    function appendMovies(movies){
+
+        if(movies === undefined){
+            return false;
+        }
+
+        movies.forEach(function(movie){
             
-            
-            }
-            catch(e){
-                console.log(e)
-            }
- 
-            
-         }
+            let p = document.createElement("p");
+            p.innerText = movie.Title;
 
-         function appendMovies(movies){
 
-            
-           
-                if(movies === undefined){
-                    return false;
-                }
-
-                let p = document.createElement("p");
-                p.innerText = movies;
-                moviesDiv.append(p)
+        })
         
-            
-         }
 
+    }
+    
+
+
+
+
+
+
+
+
+    searchMovies("inception")
 
 
 </script>
