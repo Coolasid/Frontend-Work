@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+//let=>
+    //the let keyword allows you to declare a variable with block Scope
+
+//const=>
+    //the const keyword allows you to declare a constant (a janvScript variable with constant value).
+    //const s similar to let variables, except that the value cannot be changed
+
+
+
+
+//Arrow Functions=> () =>
+        /*
+
+
+
+    //older way=>
+        function test(){
+            console.log("hello world")
+        }
+
+        let test = function(){
+            console.log("hello world");
+        }
+            */
+    //using ES6=>
+        /*
+        let test = () => {
+            console.log("hello world")
+        }
+        */
+
+        /*
+    //older way=>
+        let arr = [1,2,3,4]
+
+        arr.forEach(function(el){
+            console.log(el)
+        })
+
+    //using ES6=>
+
+        let arr = [1, 2, 3, 4]
+        arr.forEach((el) => {
+            console.log(el);
+        })
+        */
+
+
+    //for Objects=>
+
+    /*
+        var myobj = {
+            i:10,
+            b: () => console.log(this.i, this),//arrow function
+            c: function(){
+                console.log(this.i,this);
+            } //normal function
+        }
+        myobj.b();//prints undefined, window (or the global object)
+        myobj.c();//prints 10, Object;
+    */
+
+
+
+//for of => it is same as loop
+        /*
+    let arr = [1, 2, 3, 4]
+    let str = "siddesh"
+    
+    for(let x of arr){
+        console.log(x);
+    }
+
+    for( let x of str){
+        console.log(x);
+    }
+     */
+
+
+
+    
+//Destructuring =>
+
+            /*  
+        const user={
+            name:"raj",
+            age:25,
+            city:"pune"
+        }
+    //old way of grabbing the value=>
+        let name = user.name;
+
+        let age = user.age;
+
+    //new way of grabbing the value=>
+        let { name, age } = user
+            console.log(name, age);
+
+        */
+
+
+    // making fetch req =>
+        /*
+    fetch("https://reqres.in/api/uers/2")
+    .then((res) =>{
+        return res.json().then((res) =>{
+            let data = res.data
+
+        //older way of grabbing the value=>
+            //let name = data.first_name
+            //let email = data.email
+        //new way=>
+            let {first_name, email} = data
+            console.log(email);
+            console.log(first_name);
+            
+        })
+    })
+    */
+
+    // const user = {
+    //     name: "raj",
+    //     age: 25,
+    //     city: "pune"
+    // }
+
+    //old way=>
+        // function printUser(u){
+        //     console.log(u.name, u.age, u.city);
+        // }
+
+        // printUser(uers)
+
+    //new way=>
+
+        // function printUser({name, age, city}){
+        //     console.log(name, age , city);
+        // }
+        // printUser(user);
+
+    
+
+//Spread Operator=> ...
+        /*
+    let colors1 = ["red", "yellow", "blue"];
+    let colors2 = [...colors1, "vilote", "orange", "green"];
+
+    console.log(colors2);
+
+
+    //with Objects=>
+    const user1 = {
+        name:"sid"
+    }
+
+    const city = {
+        city:"bpr"
+    }
+
+    const details = {...user1, ...city}
+    console.log(details);
+
+    */
+
+//Rest Operator=>
+
+
+        // const user = {
+        //         name: "sid",
+        //         city:"pune",
+        //         age:15,
+        //         role:"developer"
+
+        //     }
+
+        // const {name, ...x} = user
+        // console.log(x);
+
+         
+    //for array=>
+
+    let arr = [1, 2, 3, 4]
+    
+    function printArray(...a){
+        console.log(a);        //we can loop over them 
+    }
+
+    printArray(10,20,30)
+
+
+</script>

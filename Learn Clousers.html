@@ -25,7 +25,7 @@
 </head>
 <body>
      
-    <input type="text" id="movie" placeholder="Enter movie name" oninput=""> 
+    <input type="text" id="movie" placeholder="Enter movie name" oninput="debounce(main,1000)"> 
     <div id="movies"></div>
 </body>
 </html>
@@ -55,21 +55,25 @@
 
 
 
- //debouncing
+ //debouncing 
 
-            let moviesDiv = document.getElementById("movies")
+    var timerId ;
+
+    let moviesDiv = document.getElementById("movies")
     async function searchMovies(movieName){
 
-
+       
         let res = await fetch(`https://www.omdbapi.com/?S=${movieName}&apikey=f38d4850`)
         let data = await res.json();
-        console.log(data);
+        // console.log(data);
+        return data;
     }
        
 
+      
 
     function appendMovies(movies){
-
+       moviesDiv.textContent = null; 
         if(movies === undefined){
             return false;
         }
@@ -78,13 +82,54 @@
             
             let p = document.createElement("p");
             p.innerText = movie.Title;
-
+        
+        moviesDiv.append(p);  
+            
 
         })
-        
 
     }
     
+   async function main(){
+         
+        let name = document.getElementById("movie").value;
+
+        if(name.length < 3){
+            moviesDiv.textContent = null;
+            return false;
+        }
+
+        let res =  await searchMovies(name);
+
+        // console.log(res);
+
+        appendMovies(res.Search) 
+
+    }
+
+
+    function debounce(func, delay){
+
+        //lets talk about A
+
+        //func = main()
+        //ave-setTimeout- func- main() - searchMovies("ave")
+        //aven - clear the perv timeout- setTimeout - func()- main() - searchMovies("aven")
+
+        if(timerId){
+        clearTimeout(timerId);
+        }
+
+
+      timerId =   setTimeout(function(){
+
+            func();
+
+        },delay)
+
+        
+
+    }
 
 
 
@@ -93,7 +138,9 @@
 
 
 
-    searchMovies("inception")
+
+
+    
 
 
 </script>
