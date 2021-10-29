@@ -5,17 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #videos{
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+         grid-gap: 5% ;
+        }
+        /* div{
+            border: 1px solid black;
+        } */
+    </style>
 </head>
 <body>
 
     <input type="text" id="query" placeholder="Search video">
     <button onclick="searchVideos()" >Search</button>
     <div id="videos"></div>
+
 </body>
 </html>
 <script>
     //AIzaSyDs8Ilqm1li - AkJXoV3wsHywwnQUn0iD6c
     //https://youtube.googleapis.com/youtube/v3/search?q=rcb&type=video&key=[YOUR_API_KEY]
+
+    async function searchVideos(){
+    
+    //q-rcb
+    //type-videos
+    //apiKey-AIzaSyDs8Ilqm1li - AkJXoV3wsHywwnQUn0iD6c
+
+        let query = document.getElementById("query").value;
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyDs8Ilqm1li - AkJXoV3wsHywwnQUn0iD6c&maxResults=20`)
+        let data = await res.json();
+        console.log(data);
+        appendVideos(data.items)
+    }
+
+
+    let videos = document.getElementById("videos")
+    function appendVideos(videoData){
+        videos.innerHTML = null;
+
+        videoData.forEach(( { id: { videoId } } ) =>{ //first we get the videoData obj by doing{} and again id is also obj So we do {id:{videoId}} to grab videoId.
+        
+            //  console.log(videoId);
+
+            //embed YT video on our  web app
+        let div = document.createElement("div");
+        // div.style.margin = "1%";
+        
+
+        div.innerHTML =  `<iframe width="360" height="215" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
+            videos.append(div);
+        })
+
+    }
+
 
 
 </script>
