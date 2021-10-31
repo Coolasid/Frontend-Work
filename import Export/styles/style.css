@@ -17,4 +17,13 @@
 
         }
 
-    
+        img{
+            width: 30%;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap:5% ;
+            justify-content: center;
+            padding: 5%;
+        }

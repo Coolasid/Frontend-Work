@@ -11,6 +11,8 @@
 
 <body>
 
+    <div id="navBarBox"></div>
+
 </body>
 </html>
 <script type="module">
@@ -18,6 +20,8 @@
  import navBar from "./components/navBar.js"
 //  console.log(navBar);
 
-document.body.innerHTML = navBar();
+let navBarBox = document.getElementById("navBarBox");
 
-</script>
+navBarBox.innerHTML = navBar();
+
+</script> 
