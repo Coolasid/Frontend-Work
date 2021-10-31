@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #navBar{
-            display: flex;
-            justify-content: space-between;
-            padding-left: 4% ;
-            padding-right: 4%;
-            border: 1px solid black;
-        }
-        #options{
-             display: flex;
-            justify-content: space-between;
-            
-        }
-        #options h3{
-            padding-left: 30px;
-            padding-right: 10px;
-
-        }
-
-    </style>
+<link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
 
 </body>
@@ -33,6 +16,8 @@
 <script type="module">
 
  import navBar from "./components/navBar.js"
- console.log(navBar);
+//  console.log(navBar);
+
+document.body.innerHTML = navBar();
 
 </script>
