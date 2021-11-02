@@ -10,7 +10,7 @@ async function getData(url){
 }
 
 function appendData(data, container){
-
+console.log(data)
     data.forEach(({title,image}) =>{
 
         let Div = document.createElement("div");
