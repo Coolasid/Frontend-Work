@@ -11,6 +11,12 @@
 </body>
 </html>
 <script>
-    console.log(typeof null)
-    console.log(1 == "1")
+    function sid(arr){
+        Object.freeze(arr);
+        let arr1 = arr;
+        
+        arr1[0] = 2;
+        return arr;
+    }
+    console.log(sid([1,2,3]));
 </script>
