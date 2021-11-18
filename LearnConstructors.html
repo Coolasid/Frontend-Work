@@ -237,43 +237,51 @@
 
 
             //bluePrint
-            function person(n,a){
-                this.name = n,
-                this.age = a
-            }
+            // function person(n,a){
+            //     this.name = n,
+            //     this.age = a
+            // }
 
-            function teacher(s,n,a){
+            // function teacher(s,n,a){
 
-                person.call(this,n,a)
+            //     person.call(this,n,a)
 
 
 
-                this.subject= s
+            //     this.subject= s
                 
                  
-            }
+            // }
 
-            function student(n,a){
-                person.apply(this, [n, a])
-                this.class="10th"
+            // function student(n,a){
+            //     person.apply(this, [n, a])
+            //     this.class="10th"
                 
 
 
-            }
+            // }
 
-            function player(n,a){
-                this.sport= "cricket"
-                let myplayer = person.bind(this, n, a)
-                myplayer();
-            }
+            // function player(n,a){
+            //     this.sport= "cricket"
+            //     let myplayer = person.bind(this, n, a)
+            //     myplayer();
+            // }
 
-            // let t1 = new teacher("DOM","sid",30);
-            //     // console.log(t1)
+            // // let t1 = new teacher("DOM","sid",30);
+            // //     // console.log(t1)
 
-            // let s1 = new student("siddesh",20);
-            // console.log(s1);
+            // // let s1 = new student("siddesh",20);
+            // // console.log(s1);
 
-            let p1= new player("siddesh",20);
-            console.log(p1);
+            // let p1= new player("siddesh",20);
+            // console.log(p1);
 
+
+                function Ent(n,m,a){
+                    this.name = n
+                    this.price = m
+                    this.img = a
+                }
+                var person = Ent("sid","patil");
+                console.log(person);
 </script>
