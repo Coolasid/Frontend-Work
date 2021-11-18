@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsPaper factory</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //   create a newspaper factory publishing newspaper=>
+
+    //        headline, date, id, name of newspaper, city name->
+
+           
+           function newspaper(n){
+               this.heading = "india won the match",
+               this.timeStamp = new Date().getDay(),
+               this.id = Math.round(Math.random()*100),
+               this.nameOfNewspaper = n
+               
+           }
+
+           var i = 0;
+           while(i<10){
+               let n = new newspaper("TOI");
+               i++;
+
+               console.log(n);
+           }
+
+           
+</script>
