@@ -22,6 +22,7 @@
             height: 100%;
             margin: auto;
         }
+
         #inp{
             margin: 0 0 0 5%;
             height: 30px;
@@ -67,7 +68,7 @@
 
                     <br>
                     <label>Date Of Task</label>
-                    <input type="date" id="inpDate" required>
+                    <input type="date" id="inpDate" required> 
                     <br>
                     <label>Status</label>
                     <select id="sel">
@@ -103,7 +104,7 @@
 </html>
 <script>
     var c = 0;
-    function makeConst(n,d,s){
+    function makeConst(n,d,s){  //making const function
         this.name = n;
         this.date = d,
         this.status = s
@@ -118,7 +119,7 @@
         let date = document.getElementById("inpDate").value;
         let status = document.getElementById("sel").value;
 
-        let task = new makeConst(name,date,status);
+        let task = new makeConst(name,date,status);  //making task object by using const function
 
         // console.log(task);
 
@@ -144,23 +145,24 @@
 
                 row.append(firstCol,secondCol,thirdCol,fourthCol,fifthCol);
         
-        table.appendChild(row);
+        table.appendChild(row);  //appending all rows in table 
       
         qtyTask();
     }
 
-    function qtyTask(){
+    function qtyTask(){   //adding tasks
         let qty = document.getElementById("qty")
         qty.textContent = c;
     }
 
     
-    function doneGreen(e){
+    function doneGreen(e){  //adding backgroundColor
             e.target.parentNode.style.backgroundColor = "green";
+            
     }
 
 
-    function removeTask(e){
+    function removeTask(e){  //removing task when clicking on complete
         e.target.parentNode.textContent = ""
         c--;
         qty.textContent = c;
