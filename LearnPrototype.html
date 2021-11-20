@@ -176,57 +176,57 @@
 //creating Custom arrays=>
 
             
-    let arr = new myArray("sid","patil","siddesh");
+//     let arr = new myArray("sid","patil","siddesh");
 
-   function myArray(){
+//    function myArray(){
 
        
 
-        this.length = arguments.length;
+//         this.length = arguments.length;
 
-        for( var i = 0; i< this.length;i++){
+//         for( var i = 0; i< this.length;i++){
 
-            this[i] = arguments[i];
+//             this[i] = arguments[i];
 
-        }
+//         }
 
-    }
+//     }
 
 
-    myArray.prototype.push1 = function(value){
+    // myArray.prototype.push1 = function(value){
 
-        let index = this.length
+    //     let index = this.length
 
-        this[index] = value;
-    };
+    //     this[index] = value;
+    // };
 
-    arr.push1("totla seth")
+    // arr.push1("totla seth")
     
-    console.log(arr);
+    // console.log(arr);
 
 
     //creating it in array formate=>
 
                  
-                    let arr = new myArray("sid", "patil", "siddesh");
+                        // let arr = new myArray("sid", "patil", "siddesh");
 
-                    function myArray() {
+                        // function myArray() {
 
-                        Object.defineProperty(this,"length",{
-                            value:0,
-                            writable:true,
-                            enumerable:false
-                        })
+                        //     Object.defineProperty(this,"length",{
+                        //         value:0,
+                        //         writable:true,
+                        //         enumerable:false
+                        //     })
 
-                        this.length = arguments.length;
+                        //     this.length = arguments.length;
 
-                        for (var i = 0; i < this.length; i++) {
+                        //     for (var i = 0; i < this.length; i++) {
 
-                            this[i] = arguments[i];
+                        //         this[i] = arguments[i];
 
-                        }
+                        //     }
 
-                    }
+                        // }
 
                 
                     // myArray.prototype.push1 = function (value) {
@@ -248,18 +248,30 @@
 
 
                     
-                        myArray.prototype.pop1 = function () {
+                        // myArray.prototype.pop1 = function () {
 
 
-                            let index = this.length - 1;
+                        //     let index = this.length - 1;
 
-                            delete this[index]
+                        //     delete this[index]
 
-                            this.length--;
+                        //     this.length--;
 
-                        }
-                        arr.pop1()
-                        console.log(Object.values(arr));
+                        // }
+                        // arr.pop1()
+                        // console.log(Object.values(arr));
         // console.log(arr)
             
+
+          function iphone11(){
+              this.name = "iphone 11";
+
+          }  
+
+          iphone11.prototype.FaceId = function (){
+              console.log("scanning Face")
+          };
+
+          var iphone1 = new iphone11();
+          iphone1.FaceId();
 </script>
