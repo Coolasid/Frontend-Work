@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Disney+ Hotstar - Watch </title>
+    <link rel="shortcut icon" type="image/jpg"
+        href="https://lh3.googleusercontent.com/proxy/ZhyvBnCo8MrqSylB5QQjTMab9dXy0zn2AetRcuvmNs5WDNrghUqEEl1ZKNPS3CEK6NetnKVbWesBf6VlzyIos9gRjea1IhtE8wg6RRHfMOLvAAWvPuBKhQ" />
     <style>
         body {
             font-family: 'Rubik', sans-serif;
@@ -107,7 +109,7 @@
     <div id="headBox">
         <div id="name">
             <div class="imgBox">
-            <img src="https://static.wikia.nocookie.net/logopedia/images/0/07/Hotstar_2018.svg/revision/latest?cb=20190427142129" class="img"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg" class="img"/>
             </div>
             <div id="sort">
                 <div>
@@ -348,8 +350,18 @@
                 imgBox.style.margin= "0 0 0 25%"
                     let img = document.createElement("img");
                     img.style.width = "100%"
-                    img.style.height = "100%"
+                    img.style.height = "95%"
                     img.src = posterImg;
+                    img.style.borderRadius = "5px";
+                    img.addEventListener("mouseenter" , () =>{
+                        img.style.width = "101%";
+                        img.style.height = "96%";
+                    });
+                    img.addEventListener("mouseleave", () => {
+                img.style.width = "100%";
+                img.style.height = "95%";
+            });
+
                     
                     imgBox.appendChild(img);
                 
