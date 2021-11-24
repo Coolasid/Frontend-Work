@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        #cont{
+            width: 80%;
+            height: 700px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,33.33%);
+        }
+    </style>
+</head>
+<body>  
+
+    <div id="cont"></div>
+     
+</body>
+</html>
+<script>
+
+    async function getData(){
+        let res = await fetch("https://reqres.in/api/users?page=2")
+
+        let data = await res.json();
+
+        // console.log(data.data);
+        appendData(data.data);
+    }
+
+
+
+    function appendData(user){
+
+        user.forEach((el) => {
+            // console.log(el)
+            let name = el.first_name + " " + el.last_name;
+
+            let userEmail = el.email;
+
+            let image = el.avatar;
+
+            let ID = el.id;
+
+
+            let cont = document.getElementById("cont");
+
+             let Div = document.createElement("div");
+
+                let img = document.createElement("img");
+                img.src = image;
+                img.style.margin = "0 0 0 34%"
+                // img.style.width = "50%";
+
+                let nameP = document.createElement("p");
+                nameP.textContent = name;
+                nameP.style.textAlign = "center";
+
+                let emailP = document.createElement("p");
+                emailP.textContent = userEmail;
+                emailP.style.textAlign = "center";
+
+                let idP = document.createElement("p");
+                idP.textContent = "ID: " + ID;
+                idP.style.textAlign = "center";
+                
+
+                Div.append(idP,img,nameP,emailP);
+
+            cont.append(Div);
+
+
+
+
+        })
+
+
+    }
+
+    getData();
+
+</script>
