@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch2</title>
+    <style>
+        #cont {
+            
+            height: 700px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 18%);
+            grid-gap: 2%;
+            row-gap: 2%;
+        }
+       
+
+    #cont>div>div::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+    #cont>div{
+        border: 1px dashed red;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="cont"></div>
+
+</body>
+
+</html>
+<script>
+
+    async function getData() {
+        let res = await fetch("https://fakestoreapi.com/products")
+
+        let data = await res.json();
+
+        // console.log(data);
+        appendData(data);
+    }
+
+
+
+    function appendData(user) {
+
+        user.forEach((el) => {
+            // console.log(el)
+            let name = el.title;
+
+            let price = el.price;
+
+            let desc = el.description;
+
+            let image = el.image;
+
+            let ID = el.id;
+
+
+            let cont = document.getElementById("cont");
+
+                let Div = document.createElement("div");
+                // Div.style.height = "300px";
+
+                    let img = document.createElement("img");
+                    img.src = image;
+                    img.style.margin = "0 0 0 34%"
+                    img.style.width = "30%";
+
+                    let nameP = document.createElement("h4");
+                    nameP.textContent = name;
+                    nameP.style.textAlign = "center";
+
+                    let descP = document.createElement("div");
+                    descP.textContent = desc;
+                    descP.style.textAlign = "justify";
+                    descP.style.overflow = "scroll"
+                    descP.style.height = "100px";
+
+                    let idP = document.createElement("h3");
+                    idP.textContent = "ID: " + ID;
+                    idP.style.textAlign = "center";
+
+
+                Div.append(idP, img, nameP, descP);
+
+            cont.append(Div);
+
+
+
+
+        })
+
+
+    }
+
+    getData();
+
+</script>
