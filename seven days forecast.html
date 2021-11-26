@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 days forecast</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    let arr = JSON.parse(localStorage.getItem("cityName"));
+
+    // console.log(arr);
+
+    let name = arr[arr.length-1];
+
+    async function showData(){
+            
+// console.log(name)
+        let res = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=London&units=metric&cnt=7&appid=43217800e9b2304cb46eb8ce5181fa4c`)
+
+        let data = await res.json();
+
+        console.log(data);
+    }
+
+    showData();
+</script>

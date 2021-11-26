@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+<body>
+    <input type="text" name="" id="place">
+    <button id="btn" onclick="search()">search</button><br>
+    <br>
+
+    <div id="map"></div>
+    
+</body>
+</html>
+
+
+<script>
+
+
+
+function search(){
+    let map = document.getElementById("map");
+    map.textContent = null;
+    var place = document.getElementById("place").value;
+
+    // console.log(place);
+
+    
+
+    let frame = document.createElement("iframe");
+    frame.style.width = "600px";
+    frame.style.height = "450px";
+    frame.style.border = "0";
+    frame.style.loading = "lazy";
+    frame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyDS0uMVyG3mKUEro6d4Z_aplGifXboCJrQ&q=${place}`
+
+map.append(frame);
+
+}
+   
+    
+</script>
+
