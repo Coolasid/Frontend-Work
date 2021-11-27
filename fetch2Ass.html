@@ -25,7 +25,7 @@
 
     <input type="text" id="city" placeholder="Enter city name">
     <button onclick="getWeather()" >Get Weather</button>
-    <a href="seven days forecast.html"><button>get 7 days forecast</button></a>
+    <a href="seven days forecast.html"><button>get 8 days forecast</button></a>
     <div id="cont">
         <div id="data"></div>
         <div id="map"></div>
@@ -65,9 +65,9 @@
 
     let Div = document.getElementById("data");
 
-
     function dataapp(el) {
         search();
+        console.log(el);
         Div.textContent = "";
         let pName = document.createElement("h4");
         pName.textContent = "Your City: "+ el.name;
@@ -78,9 +78,21 @@
         let wind = document.createElement("h5");
         wind.textContent = "Wind Speed: " + el.wind.speed + "  miles/hour";
 
-        let cloud = document.createElement("h5");
-        cloud.textContent = "Weather Cond: clouds ";
+        let cDiv = document.createElement("Div");
+        cDiv.style.display = "grid";
+        cDiv.style.gridTemplateColumns = "30% 70%";
 
+            let cloud = document.createElement("h5");
+            cloud.textContent = "Weather Condition: " + el.weather[0].main;
+
+            let icon = el.weather[0].icon;
+
+            let iconImg = document.createElement("img");
+            iconImg.src = `http://openweathermap.org/img/w/${icon}.png`
+
+
+        cDiv.append(cloud,iconImg);
+        
 
         var sec1 = el.sys.sunrise;
         var date1 = new Date(sec1 * 1000);
@@ -105,7 +117,7 @@
         
 
 
-        Div.append(pName, Temp, wind,sunrise,sunset,cloud );
+        Div.append(pName, Temp, wind,sunrise,sunset, cDiv);
 
 
     }

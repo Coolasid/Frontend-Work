@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #movies{
+            height: 200px;
+            width: 170px;
+            /* border: 1px solid black; */
+            border-top: none;
+            overflow: scroll;
+            background-color: black; 
+            color: white;
+        }
+        p:hover{
+            background-color: white;
+            cursor: pointer;
+            color: black;
+            border-radius: 5px;
+            font-size: 17px;
+            /* font-weight: 600; */
+        }
+        #movies::-webkit-scrollbar {
+  display: none;
+}
+    </style>
+</head>
+<body>
+    <input type="text" id="query" oninput="debounce(displayMovies,1000)">
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+    var movies = document.getElementById("movies");
+    
+    let bomb; 
+    async function searchMovies(){
+        
+        var name = document.getElementById("query").value;
+
+        let res = await fetch(`https://www.omdbapi.com/?S=${name}&apikey=f38d4850`);
+
+        let data = await res.json();
+
+        // console.log(data.Search);
+        return data.Search;
+    }
+
+    
+  async  function displayMovies(){
+      movies.textContent = null;
+        let movie_data = await searchMovies();
+            // console.log(movie_data);
+
+            if(movie_data === undefined){
+                return false;
+            }
+
+        movie_data.forEach((movie) =>{
+            // console.log(movie.Title);
+
+
+             let movieName = document.createElement("p");
+            movieName.textContent = movie.Title;
+            movieName.style.textAlign = "center";
+            movieName.addEventListener("click",()=>{
+                   
+                 document.getElementById("query").value = movie.Title;
+                    
+            })
+
+            movies.append(movieName);
+        })
+
+    }
+
+    function debounce(func,delay){
+
+        clearTimeout(bomb);
+
+      bomb =  setTimeout(function(){
+            func();
+        }, delay);
+    }
+
+    
+
+</script>

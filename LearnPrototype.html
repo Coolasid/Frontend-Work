@@ -62,53 +62,53 @@
 
 
   // use of construtor function on prototype->
-        /*
-        function person(n,a){
-            this.name = n,
-            this.age = a
+        
+        // function person(n,a){
+        //     this.name = n,
+        //     this.age = a
 
-        }
+        // }
 
-        person.prototype.city = "pune";
-        var p1 = new person("raj",23)
-        console.log(p1.city)
-        */ 
+        // p1.prototype.city = "pune";
+        // var person = new person("raj",23)
+        // console.log(p1.city)
+        
 
-        /*
-        function person(n, a) {
-                this.name = n,
-                    this.age = a
+        
+        // function person(n, a) {
+        //         this.name = n,
+        //             this.age = a
 
-            }
+        //     }
 
-            person.prototype.setCity = function(c){
+        //     person.prototype.setCity = function(c){
 
-                this.city = c
+        //         this.city = c
 
-            }
+        //     }
 
 
-            var p1 = new person("raj", 23)
+        //     var p1 = new person("raj", 23)
             
-            p1.setCity("mumbai")
-            console.log(p1);
-            */
+        //     p1.setCity("mumbai")
+        //     console.log(p1);
+            
 
 
 
             //use of hasOwnProperty =>
-                    /*
-                    var a = {
-                        name:"sid"
-                    }
-                    var b = Object.create(a)
                     
-                    console.log(b.hasOwnProperty("name")) //this give us false in console because b dose not have the property of name
+                    // var a = {
+                    //     name:"sid"
+                    // }
+                    // var b = Object.create(a)
+                    
+                    // console.log(b.hasOwnProperty("name")) //this give us false in console because b dose not have the property of name
 
-                    b.age = 2
+                    // b.age = 2
 
-                    console.log(b.hasOwnProperty("age")) //this give us true
-                    */
+                    // console.log(b.hasOwnProperty("age")) //this give us true
+                    
 
 
             //making function like forEach by prototype->
@@ -259,19 +259,19 @@
 
                         // }
                         // arr.pop1()
-                        // console.log(Object.values(arr));
-        // console.log(arr)
+        //                 // console.log(Object.values(arr));
+        // // console.log(arr)
             
 
-          function iphone11(){
-              this.name = "iphone 11";
+        //   function iphone11(){
+        //       this.name = "iphone 11";
 
-          }  
+        //   }  
 
-          iphone11.prototype.FaceId = function (){
-              console.log("scanning Face")
-          };
+        //   iphone11.prototype.FaceId = function (){
+        //       console.log("scanning Face")
+        //   };
 
-          var iphone1 = new iphone11();
-          iphone1.FaceId();
+        //   var iphone1 = new iphone11();
+        //   iphone1.FaceId();
 </script>
