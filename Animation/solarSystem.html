@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solarSystem</title>
+    <style>
+        
+body{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.planet{
+    width: var(--diameter);
+    height: var(--diameter);
+    top: calc(50% - var(--diameter)/2);
+    left: calc(50% - var(--diameter)/2);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.sun{
+--diameter: 150px;
+background-color: orange;
+
+}
+
+.mer{
+    --moveX: 120px;
+    --diameter: 20px;
+background-color: gray;
+animation: solarSystem  2s infinite linear;
+ 
+}
+
+.ven{
+    --moveX: 180px;
+   --diameter: 30px;
+background-color: red;
+transform: translate(180px);
+animation: solarSystem  2.5s infinite linear;
+ 
+}
+.earth{
+    --moveX: 250px;
+    --diameter: 50px;
+background-color: cyan;
+animation: solarSystem  3.5s infinite linear;
+
+ 
+}
+.mars{
+    --moveX: 320px;
+    --diameter: 40px;
+background-color: orangered;
+animation: solarSystem  4.5s infinite linear;
+}
+
+@keyframes solarSystem {
+    from{
+        transform: rotate(0deg) translate(var(--moveX)) ;
+    }
+    to{
+        transform: rotate(360deg) translate(var(--moveX));
+    }
+}
+    </style>
+
+</head>
+<body>
+    
+        <div class="planet sun"></div>
+        <div class="planet mer"></div>
+        <div class="planet ven"></div>
+        <div class="planet earth" ></div>
+        <div class="planet mars"></div>
+    
+</body>
+</html>
