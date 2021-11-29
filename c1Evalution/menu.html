@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <style>
+        div {
+            /* border: 1px solid black; */
+
+        }
+
+        #navBarBox {
+            border: 1px solid black;
+            width: 100%;
+            height: 50px;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            
+        }
+
+        #allMeals{
+            width: 90%;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            margin: 20px auto auto auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBarBox">
+        <div><a href="menu.html">Menu</a> </div>
+        <div><a href="#">Sign In</a> </div>
+        <div><a href="#">Sign Up</a></div>
+        <div><a href="cart.html">cart</a> </div>
+        <div >qty in cart: <span id="qcart"></span> </div>
+    </div>
+
+    <div id="allMeals">
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    async function getData(){
+        let res = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?a=indian");
+        let data = await res.json();
+        // console.log(data.meals);
+            appendData(data.meals);
+    }
+
+    function appendData(dish){
+        // console.log(dish);
+        let allMealsDiv = document.getElementById("allMeals");
+        dish.forEach((d) =>{
+            // console.log(d);
+
+            let name = d.strMeal;
+            let img = d.strMealThumb;
+            let price = d.idMeal - 52500;
+
+            // console.log(name,img,price)
+
+            let Div = document.createElement("div");
+
+                let imgD = document.createElement("img");
+                imgD.src = img;
+                imgD.style.width =  "50%";
+                imgD.style.height = "50%";
+                imgD.style.margin = "0 0 0 25%"
+                imgD.style.borderRadius = "10px"
+
+                let nameP = document.createElement("p");
+                nameP.textContent = name;
+                nameP.style.textAlign = "center";
+
+
+                let priceP = document.createElement("p");
+                priceP.textContent = price;
+                priceP.style.textAlign = "center";
+
+
+                let addCartD = document.createElement("button");
+                addCartD.textContent = "add to cart";
+                addCartD.style.margin = "0 0 0 40%"
+                addCartD.onclick = function(){
+                    addToCart(d);
+                    
+                }
+            Div.append(imgD,nameP,priceP, addCartD);
+
+
+        allMealsDiv.append(Div);
+
+        })
+    }
+
+    if(localStorage.getItem("foodCart") == null){
+        localStorage.setItem("foodCart",JSON.stringify([]));
+
+    }
+
+
+    function addToCart(d){
+        // console.log(d);
+
+        let prodCart = JSON.parse(localStorage.getItem("foodCart"));
+        prodCart.push(d);
+
+        localStorage.setItem("foodCart",JSON.stringify(prodCart));
+
+        alert("your dish is added in cart")
+    }
+
+    setInterval(() => {
+        let cart = JSON.parse(localStorage.getItem("foodCart"));
+
+        // console.log(cart.length);
+        // let q = console.log(cart.length);
+
+        let cartq = document.getElementById("qcart");
+        cartq.innerText = cart.length;
+    }, 1);
+    
+
+
+
+    getData()
+</script>

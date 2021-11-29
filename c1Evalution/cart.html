@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        div {
+            /* border: 1px solid black; */
+
+        }
+
+        #navBarBox {
+            border: 1px solid black;
+            width: 100%;
+            height: 50px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+
+        }
+         #allProducts {
+            margin: 3% 5% 10% 5%;
+            /* border: 1px solid black; */
+            height: 600px;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap: 5%;
+            
+        }
+    
+        img {
+            width: 80%;
+            border-radius: 10px;
+        }
+    
+        /* div{
+                border: 1px solid black;
+            }
+
+        span{
+             border: 1px solid black;
+        } */
+
+        .text{
+            font-size: 17px;
+            font-weight: 500;
+            margin: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBarBox">
+        <div><a href="menu.html">Menu</a> </div>
+        <div><a href="#">Sign In</a> </div>
+        <div><a href="#">Sign Up</a></div>
+        <div><a href="cart.html">cart</a> </div>
+    </div>
+    
+<h1>Welcome to Cart</h1>
+<div>
+    <div class="text"> Total products in your cart: <span id="qty"></span></div>
+    <div class="text"> Total price: <span id="total"></span></div>
+   
+    <a href="checkout.html"><button>Check Out</button></a>
+</div>
+<div id="allProducts"></div>
+    
+
+</body>
+
+</html>
+<script>
+
+    let cart = JSON.parse(localStorage.getItem("foodCart"));
+
+
+
+
+    //qyt in cart->
+     setInterval(() => {
+            var c = 0;
+            cart.forEach(function (el) {
+                c++;
+
+            })
+            let qty = document.getElementById("qty");
+            qty.textContent = c;
+            qty.style.fontSize = "17px";
+            qty.style.fontWeight = '700'
+
+
+            //total price in cart->
+            var sum = 0;
+            cart.forEach(function (el) {
+                sum = sum + +(el.idMeal - 52500);
+            })
+
+            let total = document.getElementById("total");
+            total.textContent = sum;
+
+        }, 1);
+    
+    
+  
+
+
+
+    let allProducts = document.getElementById("allProducts");
+
+
+    function showProducts(cart) {
+
+
+        cart.forEach(function (cart) {
+
+
+            // console.log(products.name);
+
+
+
+            let div = document.createElement("div");
+            // div.style.border = "1px solid black";
+
+            let img = document.createElement("img");
+            img.src = cart.strMealThumb;
+            img.style.margin = "0 0 0 10%"
+            // img.style.width = "10%";
+            // img.style.height = "10%";
+
+
+            let prodPrice = document.createElement("p");
+            prodPrice.textContent = cart.idMeal - 52500;
+            prodPrice.style.textAlign = "center";
+            prodPrice.style.fontSize = "20px";
+            prodPrice.style.fontWeight = "600";
+
+
+            let prodName = document.createElement("p");
+            prodName.textContent = cart.strMeal;
+            prodName.style.textAlign = "center";
+            prodName.style.fontSize = "20px";
+
+            let removeBtn = document.createElement("button");
+            removeBtn.innerText = "Remove Dish";
+            removeBtn.style.margin = "0 0 0 33%"
+            removeBtn.onclick = (function(){
+                remove(cart);
+            })
+
+
+            div.append(img, prodName, prodPrice ,removeBtn);
+
+
+
+
+            allProducts.appendChild(div);
+
+
+        });
+
+    }
+
+    showProducts(cart);
+
+    function remove(item){
+        allProducts.innerHTML = null;
+        console.log(item);
+        let cart = JSON.parse(localStorage.getItem("foodCart"));
+        var newCart = [];
+        cart.forEach((el) =>{
+            console.log(el)
+            if(item.strMeal != el.strMeal){
+                // alert();
+                newCart.push(el);
+
+            }
+
+            
+        })
+         localStorage.setItem("foodCart", JSON.stringify(newCart));
+         
+        
+        
+       
+
+        showProducts(newCart);
+        window.location.href = "cart.html"
+    }
+
+   
+
+
+</script>

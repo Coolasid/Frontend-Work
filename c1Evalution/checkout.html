@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkOut</title>
+    <style>
+        div {
+            /* border: 1px solid black; */
+
+        }
+
+        #navBarBox {
+            border: 1px solid black;
+            width: 100%;
+            height: 50px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBarBox">
+        <div><a href="menu.html">Menu</a> </div>
+        <div><a href="#">Sign In</a> </div>
+        <div><a href="#">Sign Up</a></div>
+        <div><a href="cart.html">cart</a> </div>
+    </div>
+
+    <div>
+        <input type="text" placeholder="your adderss" required>
+        <button onclick="ready()">place order</button>
+    </div>
+</body>
+
+</html>
+<script>
+
+ function ready(){
+
+    alert(" Your order is accepted");
+
+    setTimeout(function(){
+        alert("Your order is being cooked")
+    },3000)
+
+    setTimeout(function () {
+         alert("Your order is ready")
+     }, 8000)
+
+     setTimeout(function () {
+         alert("Order out for delivery")
+     }, 10000)
+     setTimeout(function () {
+         alert("Order delivered")
+     }, 12000)
+    
+     
+
+ }
+
+</script>
