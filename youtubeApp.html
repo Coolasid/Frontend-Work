@@ -35,7 +35,7 @@
     //apiKey-AIzaSyDs8Ilqm1li - AkJXoV3wsHywwnQUn0iD6c
 
         let query = document.getElementById("query").value;
-        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyDs8Ilqm1li - AkJXoV3wsHywwnQUn0iD6c&maxResults=20`)
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyDs8Ilqm1li-AkJXoV3wsHywwnQUn0iD6c&maxResults=20`)
         let data = await res.json();
         console.log(data);
         appendVideos(data.items)
