@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spinner&Hamburger</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid black;
+            border-top: 8px solid red;
+            border-bottom: 8px solid blue;
+            animation: linear infinite 2s rotate;
+        }
+
+        @keyframes rotate{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        #hamb{
+            font-size: 60px;
+            margin: 70px;
+            transition: linear 1s all;
+            
+        }
+
+       
+    </style>
+</head>
+<body>
+    <!-- prb 1 Spinner -->
+
+    <div id="box1">
+        
+    </div>
+
+
+    <span class="material-icons-outlined" id="hamb">
+        menu
+    </span>
+</body>
+</html>
+<script>
+    let hamb = document.getElementById("hamb");
+
+    hamb.addEventListener("click",cross)
+
+    function cross(){
+        hamb.innerHTML = `<span class="material-icons-outlined" >
+close
+</span>`
+    }
+</script>
