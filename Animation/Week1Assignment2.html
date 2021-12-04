@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diffEffects</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: .5s linear all;
+            margin: 20px;
+        }
+        #box1:hover{
+            transform: scale(1.2);
+            background-color: red;
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            animation: linear 3s onload ;
+
+            /* transition: linear 3s onload; */
+            margin: 20px;
+            
+        }
+        @keyframes onload{
+            0%{
+                opacity: 0;
+                background-color: purple;
+            }
+            100%{
+                opacity: 1;
+                
+            }
+        }
+
+        #box3{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            animation:  3s linear slideIn;
+            margin: 20px;
+        }
+        @keyframes slideIn{
+            0%{
+                opacity: 0;
+                transform: translateX(1500px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+
+        #box4{
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            margin: 20px;
+            transition: 1s linear all;
+        }
+        #box4:hover{
+            transform: rotate(360deg);
+            background-color: darkorchid;
+        }
+
+        #box5{
+             width: 100px;
+            height: 100px;
+            background-color: rgb(201, 118, 201);
+            margin: 20px;
+            transition: linear 1s all;
+        }
+        #box5:hover{
+            border-radius: 50%;
+            background-color: purple;
+        }
+
+        #allBox>div{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            margin: 20px;
+        }
+
+        #box6{
+            animation: 5s ease slideOut6 infinite;
+        }
+
+        @keyframes slideOut6 {
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box7{
+            animation: 5s ease-in slideOut7 infinite;
+        }
+
+        @keyframes slideOut7{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box8{
+            animation: 5s ease-out slideOut8 infinite;
+        }
+
+        @keyframes slideOut8{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box9{
+            animation: 5s ease-in-out slideOut9 infinite;
+        }
+
+        @keyframes slideOut9{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box10{
+            animation: 5s linear slideOut10 infinite;
+        }
+        @keyframes slideOut10{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box11{
+            animation: cubic-bezier(.17,.67,.09,.94) 5s slideOut11 infinite ;
+        }
+
+        @keyframes slideOut11{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box12{
+            animation: cubic-bezier(1,.35,0,.92) infinite 5s slideOut12;
+        }
+
+        @keyframes slideOut12{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+
+        #box13{
+            animation: cubic-bezier(1,-0.02,0,.16) 5s infinite slideOut13;
+        }
+
+        @keyframes slideOut13{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(1400px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- prb 1 on hover -->
+    <div id="box1">
+        
+    </div>
+
+    <!-- prb 2 on load -->
+
+    <div id="box2"></div>
+
+    <!-- prb 3 on slide in -->
+
+    <div id="box3"></div>
+
+    <!-- prb 4 on hover rotate -->
+
+    <div id="box4"></div>
+
+    <!-- prb 5 on hover border-radius -->
+
+    <div id="box5"></div>
+
+    <!-- prb 6 translate on load  -->
+    <div id="allBox">
+        <div id="box6"></div>
+        <div id="box7"></div>
+        <div id="box8"></div>
+        <div id="box9"></div>
+        <div id="box10"></div>
+        <div id="box11"></div>
+        <div id="box12"></div>
+        <div id="box13"></div>
+    </div>
+</body>
+</html>
