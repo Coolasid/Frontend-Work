@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrowMovement</title>
+    <style>
+        div{
+            /* border: 1px solid black; */
+        }
+        #cont{
+            width: 90%;
+            margin: 50px auto auto auto;
+            font-size: 100px;
+            height: 600px;
+            display: grid;
+            grid-template-columns: repeat(5, 20%);
+            text-align: center;
+           
+            box-sizing: border-box;
+            
+        }
+        #cont>div{
+            padding-top: 70px;
+            box-sizing: border-box;
+        }
+        #box1{
+           
+           transition: all 1s linear;
+            
+            
+        }
+        #box1:hover{
+            transform: rotate(45deg) scale(3);
+            
+        }
+
+        #box2{
+            transition: ease-in-out 2s all;
+        }
+
+        #box2:hover{
+            transform: rotate(90deg) scale(4);
+            color: red;
+        }
+        
+        #box3{
+            transition: linear 2s all ;
+        }
+
+        #box3:hover{
+            color: blue;
+            transform: rotate(180deg) scale(5);
+        }
+        #box4{
+            transition: 1s linear all;
+        }
+        #box4:hover{
+            transform: rotate(270deg);
+        }
+
+        #box5{
+            transition: .3s linear all;
+           
+        }
+        #box5:hover{
+             transform: translateX(4px);
+        }
+        #box6{
+            transition: 1s linear all;
+        }
+        #box6:hover{
+            transform: translateY(8px);
+        }
+        #box7{
+            transition: 1s all linear;
+        }
+        #box7:hover{
+            transform: translate(16px);
+        }
+        #box8{
+            transition: 1s linear all;
+
+        }
+        #box8:hover{
+            transform: translateX(24px);
+        }
+        #box9{
+            transition: 1s linear all;
+        }
+        #box9:hover{
+            transform: scale(1.5);
+        }
+        #box10{
+            transition: 1s linear all;
+        }
+        #box10:hover{
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div id="box1">
+            ➞
+        </div>
+        <div id="box2">
+            ➞
+        </div>
+        <div id="box3">
+            ➞
+        </div>
+        <div id="box4">
+            ➞
+        </div>
+        <div id="box5">
+            ➞
+        </div>
+        <div id="box6">
+            ➞
+        </div>
+        <div id="box7">
+            ➞
+        </div>
+        <div id="box8">
+            ➞
+        </div>
+        <div id="box9">
+            ➞
+        </div>
+        <div id="box10">
+            ➞
+        </div>
+        
+    </div> 
+   
+</body>
+</html>
