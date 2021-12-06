@@ -27,11 +27,23 @@
         }
 
         #hamb{
+            
             font-size: 60px;
             margin: 70px;
-            transition: linear 1s all;
-            
+            transition: linear .1s all;
+            color: red;
+            cursor: pointer;
         }
+        #hamb:active{
+            /* font-family: "Font Awesome 5 Free";  */
+            transform: rotate(90deg);
+            font-weight: 900; 
+            content: "\f005";
+            /* font-size: 100px; */
+            color: black;
+            cursor: pointer;
+        }
+
 
        
     </style>
@@ -44,19 +56,14 @@
     </div>
 
 
-    <span class="material-icons-outlined" id="hamb">
-        menu
-    </span>
+    <div >
+        <span class="material-icons-outlined" id="hamb">
+            menu 
+        </span>
+    
+    </div>
 </body>
 </html>
 <script>
-    let hamb = document.getElementById("hamb");
-
-    hamb.addEventListener("click",cross)
-
-    function cross(){
-        hamb.innerHTML = `<span class="material-icons-outlined" >
-close
-</span>`
-    }
+   
 </script>
