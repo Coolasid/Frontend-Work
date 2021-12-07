@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #container{
+            display: flex;
+        }
+        #form{
+            width: 10%;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>signup</h2>
+    <div id="container">
+        
+        <div id="registerForm"></div>
+        <form action="">
+
+            <input type="text" id="name" placeholder="Name"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <input type="text" id="username" placeholder="Username"><br>
+            <input type="number" id="mobile" placeholder="Mobile"><br>
+            <input type="text" id="description" placeholder="Description"><br>
+
+
+        </form>
+<br>
+        <button onclick="Register()">Signup</button>
+    </div>
+    
+
+
+    
+        <div id="loginForm">
+            <h2>login</h2>
+        <form action="">
+    
+            <input type="text" id="username1" placeholder="Username"><br>
+
+    <input type="password" id="password1" placeholder="Password"><br>
+    
+        </form>
+        <br>
+        <button onclick="login()">Login</button>
+    </div>
+
+
+    <div id="nameA"></div>
+</body>
+</html>
+<script>
+    // https://github.com/masai-school/api-mocker/wiki/Authentication-API
+
+    // api link = https://masai-api-mocker.herokuapp.com/auth/register
+
+    
+   async function Register(){
+
+
+        // 1. get all the input values
+        // 2. store it in an Object
+        // 3. convert the object to json
+        // 4. send data to server(fetch)
+
+        let signupData = {
+
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            username: document.getElementById("username").value,
+            mobile: document.getElementById("mobile").value,
+            description: document.getElementById("description").value
+        }
+
+        signupData = JSON.stringify(signupData);
+        console.log(signupData);
+
+
+        let registerApi = `https://masai-api-mocker.herokuapp.com/auth/register`
+
+        //it is the post req
+
+        //Body - send data in body
+
+     let res = await  fetch(registerApi, {
+
+            method: "POST",
+            body: signupData,
+
+            //more extra info about my request
+            headers:{
+
+                'Content-Type': "application/json",
+            },
+
+        });
+
+        let data = await res.json();
+        console.log(data);
+
+
+
+
+    }
+
+
+    async function login(){
+
+        let loginData = {
+            username: document.getElementById("username1").value,
+            password: document.getElementById("password1").value
+        }
+
+        loginData = JSON.stringify(loginData);
+
+        let loginApi = `https://masai-api-mocker.herokuapp.com/auth/login`
+
+
+        //fetch request
+
+     var response = await  fetch(loginApi, {
+
+            method: "POST",
+            body: loginData,
+
+            headers: {
+
+             'Content-Type': "application/json",
+            },
+        });
+
+
+        let data1 = await response.json();
+
+        console.log(data1);
+
+        // 36d39ea2f59a2e013a61ed87bceae9eb 
+
+        let un = document.getElementById("username1").value;
+
+        getProfile(un,data1.token);
+
+
+    }
+
+
+    async function getProfile(username,token){
+
+        let api = `https://masai-api-mocker.herokuapp.com/user/${username}`
+
+     let tres = await   fetch(api,{
+
+            headers:{
+                'Content-Type': "application/json",
+
+                "Authorization": `Bearer ${token}`,
+
+            },
+        });
+
+        let data = await tres.json();
+
+        console.log(data);
+
+
+        let nm = document.getElementById("nameA");
+
+        nm.textContent = "Hello! "+ data.name;
+
+
+    }
+
+
+</script>
