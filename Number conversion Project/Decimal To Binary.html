@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number conversion</title>
+    <style>
+        .pad{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <select name="" id="select1">
+        <option value="Decimal">Decimal</option>
+        <option value="Binary">Binary</option>
+        <option value="Hexa">Hexa</option>
+    </select>
+    <input type="number" placeholder=" Number..." id="decimalN" />
+    <br>
+    <button onclick="getNO()">get your number</button>
+    <br>
+    <select name="" id="select2">
+        <option value="Decimal">Decimal</option>
+        <option value="Binary">Binary</option>
+        <option value="Hexa">Hexa</option>
+    </select>
+    <input type="number" placeholder=" Number..." id="binaryN"/>
+    
+    
+</body>
+</html>
+<script>
+
+    setInterval(() => {
+         let s1 = document.getElementById("select1").value;
+        // console.log(s1);
+        let s2 = document.getElementById("select2").value;
+        // console.log(s2);
+
+    }, 1000);
+   
+
+
+    function getNO(){
+        
+        
+        let N = +document.getElementById("decimalN").value;
+
+        if(N != ""){
+            // console.log(N);
+
+            let BinaryNo = "";
+
+            function bNo(N){
+                
+                if( N == 0 || N == 1){
+                    return BinaryNo += N;
+                }
+
+                BinaryNo += N % 2;
+
+                return bNo(Math.floor(N/2));
+
+            }
+            bNo(N)
+            // console.log(BinaryNo);
+
+            document.getElementById("binaryN").value = BinaryNo.split("").reverse().join("");
+
+        }else{
+            alert("enter number")
+
+        }
+
+       
+        
+    }
+
+    
+</script>
